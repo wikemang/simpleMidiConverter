@@ -1,5 +1,8 @@
-
+# Class used to describe a note within a piece of music.
 class ActiveNote:
+	# MAX_LOUDNESS used as a mediating value between the midiWriter and ActiveNote creator.
+	MAX_LOUDNESS = 100
+
 	def __init__(self, note, startTime, endTime, loudness):
 		self.note = note
 		self.startTime = startTime
@@ -18,6 +21,3 @@ class ActiveNote:
 	def sortList(cls, noteList):
 		noteList.sort(key=lambda x: x.startTime)
 
-	@classmethod
-	def getMaxLoudness(cls):
-		return 120

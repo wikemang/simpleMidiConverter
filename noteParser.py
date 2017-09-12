@@ -1,4 +1,5 @@
 # NoteParse is a singleton and parses an html table of notes into memory.
+# notes.html is from https://pages.mtu.edu/~suits/notefreqs.html
 
 class Note:
 	def __init__(self, name, frequency):
@@ -8,15 +9,14 @@ class Note:
 class NoteParser:
 	class __NoteParser:
 		def __init__(self):
-			self.notes = None
+			self.notes = []
 
 		def parseNotes(self):
-			if self.notes != None:
+			if self.notes != []:
 				return self.notes
 			data = None
-			notes = []
 			with open("notes.html", 'r') as f:
-				data = f.read()	# Wav file metadata length. Should remain this till the end of time.
+				data = f.read()
 			rows = data.split("<tr>")[1:]
 			for row in rows:
 				row = row.replace("<sub>", "")
@@ -27,9 +27,8 @@ class NoteParser:
 				items = row.split("<td align=center>")
 				name = items[1][:items[1].index("</td>")]
 				frequency = float(items[2][:items[2].index("</td>")])
-				notes.append(Note(name, frequency))
-			self.notes = notes
-			return notes
+				self.notes.append(Note(name, frequency))
+			return self.notes
 
 	def __init__(self):
 		self.notes = None

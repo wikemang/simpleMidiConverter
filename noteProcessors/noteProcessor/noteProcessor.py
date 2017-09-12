@@ -1,15 +1,20 @@
-from numpy import fft
-from noteParser import NoteParser
-from activeNote import ActiveNote
 from collections import defaultdict
-from noteProcessors.noteProcessor.shapeStrategies import ShapeStrategy1, ShapeStrategy2
+from matplotlib import pyplot
+from matplotlib.style import context
+from numpy import fft
 
-import random
+from activeNote import ActiveNote
+from noteProcessors.abstractNoteProcessor import AbstractNoteProcessor
+from noteProcessors.noteProcessor.baseShapeStrategy import BaseShapeStrategy
+from noteProcessors.noteProcessor.shapeStrategies import FilterShapeStrategy
 
+
+
+# An interval property holds information regarding a segment of data samples,
+# including the fourier transform and the time it corresponds to.
 class IntervalProperty:
-	def __init__(self, fourierTransform, dataPoints):
+	def __init__(self, fourierTransform):
 		self.fourierTransform = fourierTransform
-		self.dataPoints = dataPoints
 		self.startTime = None
 		self.endTime = None
 
@@ -18,111 +23,46 @@ class IntervalProperty:
 		self.endTime = endTime
 
 
+# This note processor strategy uses a non-continuous way to find notes.
+# The original sound samples are split into numerous time-chunks.
+# Frequency is calculated within each time chunk and visualised/analysed using a 2d array.
+# The analysis/processing strategy within the 2d array is isolated in class ShapeStrategy
 
-
-class FourierDataPoint:
-
-	def __init__(self, strength, frequency, index, noteList):
-		self.strength = strength
-		self.frequency = frequency
-		self.index = index
-		self.noteList = noteList
-		self.closestNote = None
-		self.diffPercent = None
-
-	def getNote(self):
-		if not (self.closestNote == None):
-			return self.closestNote
-		for i in range(1, len(self.noteList)):
-			if self.frequency < self.noteList[i].frequency:
-				break
-		lowerNotePercent = self.frequency / self.noteList[i - 1].frequency
-		higherNotePercent = self.noteList[i].frequency / self.frequency
-		if lowerNotePercent < higherNotePercent:
-			self.closestNote = self.noteList[i - 1]
-			self.diffPercent = lowerNotePercent
-		else:
-			self.closestNote = self.noteList[i]
-			self.diffPercent = higherNotePercent
-		return self.closestNote
-
-	def print(self):
-		closestNote = self.getNote()
-		print("Str: %f \tFreq: %f \t Index: %f \tNote: %s \t FreqDiff: %f" % (self.strength, self.frequency, self.index, closestNote.name, self.diffPercent))
-
-
-
-class NoteProcessor:
+class NoteProcessor(AbstractNoteProcessor):
 	def __init__(self, waveforms, sampleRate, noteParser=None, shapeStrategy=None):
-		self.waveforms = waveforms
-		self.sampleRate = sampleRate
-		noteParser = noteParser or NoteParser()
-		self.noteList = noteParser.parseNotes()
-		# Consider interval of some fundamental frequency of all notes, although this may not be integer
-		self.intervalSize = 18.328	# Number of intervals per second
-		self.samplesPerInterval = int(self.sampleRate / self.intervalSize)
-		self.shapeStrategy = shapeStrategy or ShapeStrategy2(self.sampleRate, self.samplesPerInterval)
-		# This should come from a beat processor, and then mutiply by integer until it is between 20 and 30.
+		super(NoteProcessor, self).__init__(waveforms, sampleRate, noteParser)
+
+		# Number of intervals per second
 		# Too high means inaccurate perceived frequencies, too low means inacurate time periods
-		self.offset = 0.0188
+		# Ideally, this should come from a beat processor because it could improve accuracy.
+		self.intervalsPerSecond = 20
+		self.offset = 0
+		# Idea 2: we can do 2 passes, one with low intervalsPerSecond and one with high intervalsPerSecond and 
+		# it could give us better time and frequency precision
 
-	def getActiveNotesFromIntervalPropertyList(self, intervalPropertyList):
-		activeNotes = []
-		currentNotes = defaultdict(lambda: None)
-		for intervalProperty in intervalPropertyList:
-			removedKeys = []
-			for key, currentNote in currentNotes.items():
-				if key not in [p.getNote() for p in intervalProperty.dataPoints]:
-					removedKeys.append(key)
-					if currentNote["endTime"] - currentNote["startTime"] >= 0.01:
-						a = ActiveNote(key, currentNote["startTime"], currentNote["endTime"], 50)
-						activeNotes.append(a)
-			for k in removedKeys:
-				del currentNotes[k]
+		self.samplesPerInterval = int(self.sampleRate / self.intervalsPerSecond)	# Note that intervalsPerSecond is approximate value
+		self.shapeStrategy = shapeStrategy(self.sampleRate, self.samplesPerInterval) or FilterShapeStrategy(self.sampleRate, self.samplesPerInterval)
 
 
-			for fourierDataPoint in intervalProperty.dataPoints:
-				note = fourierDataPoint.getNote()
-				if currentNotes[note] == None:
-					if abs(1 - fourierDataPoint.diffPercent) <= 0.01:
-						noteItem = {
-							"startTime": intervalProperty.startTime,
-							"endTime": intervalProperty.endTime
-						}
-						currentNotes[note] = noteItem
-					else:
-						del currentNotes[note]
-				else:
-					currentNotes[note]["endTime"] = intervalProperty.endTime
-		return activeNotes #TODO move this once we do mutiple channels
-
-
+	# Saves a plot of the 2d Array to file.
+	# TODO: move this elsewhere
 	def d2Plot(self, d2Array, filename):
-		import numpy as np
-		import matplotlib.pyplot as plt
 
-		d2Array = [a for a in d2Array]
+		with context('classic'):
+			pyplot.figure(figsize=(len(d2Array[0]) / 20, len(d2Array) / 20))
 
-		fig = plt.figure(figsize=(len(d2Array[0]) / 20, len(d2Array) / 20))
+			pyplot.imshow(d2Array)
 
-		ax = fig.add_subplot(111)
-		ax.set_title('colorMap')
-		plt.imshow(d2Array)
-		ax.set_aspect('equal')
-
-		cax = fig.add_axes([0.12, 0.1, 0.78, 0.8])
-		cax.get_xaxis().set_visible(False)
-		cax.get_yaxis().set_visible(False)
-		cax.patch.set_alpha(0)
-		cax.set_frame_on(False)
-		plt.colorbar(orientation='vertical')
-		plt.savefig(filename)
-		#plt.show()
+			pyplot.colorbar(orientation='vertical')
+			pyplot.savefig(filename)
+			pyplot.close('all')
 
 
 	def getClosestNote(self, frequency):
 		closestNote = None
 		diffPercent = None
+
+		# TODO: change this to bin search
 		for i in range(1, len(self.noteList)):
 			if frequency < self.noteList[i].frequency:
 				break
@@ -142,93 +82,24 @@ class NoteProcessor:
 		largestMagnitude = max([s.magnitude for s in shapeList])
 		for shape in shapeList:
 			frequency = shape.centerOfMass * self.sampleRate / self.samplesPerInterval
-
 			closestNote, diffPercent = self.getClosestNote(frequency)
-			#TODO: the following is the same as getNote()
 
-			import math
-			if math.isnan((shape.magnitude ** 0.5 / largestMagnitude ** 0.5) * 100):
-				import pdb;pdb.set_trace()
+			# Creates a note with start and end times. Loudness is approximated here.
+			# TODO: Find the exact relation between loudness & velocity of note (as used by midi files)
 			a = ActiveNote(closestNote, 
 				shape.timeIndexStart * self.samplesPerInterval / self.sampleRate, 
 				shape.timeIndexEnd * self.samplesPerInterval / self.sampleRate, 
 				(shape.magnitude ** 0.5 / largestMagnitude ** 0.5) * 100)
 			activeNotes.append(a)
 
+		return activeNotes
 
-		return activeNotes #TODO move this once we do mutiple channels
-
-
-
-	def getActiveNotesFromIntervalPropertyList2(self, intervalPropertyList):
-		timePerUnit = intervalPropertyList[0].endTime - intervalPropertyList[0].startTime
-		timeFrequencyArray = []
-		for intervalProperty in intervalPropertyList:
-			modifiedFourierTransform = [abs(a) for a in intervalProperty.fourierTransform][: self.samplesPerInterval // 2]
-			timeFrequencyArray.append(modifiedFourierTransform)
-
-		shapeList = self.shapeStrategy.getShapeList(timeFrequencyArray)
-		self.d2Plot(timeFrequencyArray, "test/value.png")
-
-
-		shapeArray3 = [[0 for i in range(len(timeFrequencyArray[0]))] for j in range(len(timeFrequencyArray))]
-		for shape in shapeList:
-			if shape.isBaseCandidate:
-				freq = int(round(shape.centerOfMass))
-				for i in range(len(shape.magnitudeByTime)):
-					if shapeArray3[i + shape.timeIndexStart][freq] < shape.magnitudeByTime[i]:
-						shapeArray3[i + shape.timeIndexStart][freq] = shape.magnitudeByTime[i]
-		self.d2Plot(shapeArray3, "test/shape.png")
-
-		# rowAverage = [sum(timeFrequencyArray[i]) / len(timeFrequencyArray[i]) for i in range(len(timeFrequencyArray))]
-		# average = sum(rowAverage) / len(rowAverage)
-		# averageArray = [[0 if timeFrequencyArray[i][j] > average else 100 for j in range(len(timeFrequencyArray[0]))] for i in range(len(timeFrequencyArray))]
-		# self.d2Plot(averageArray, "avg.png")
-
-		activeNotes = self.getActiveNotesFromShapeList(shapeList)
-
-
-		return activeNotes #TODO move this once we do mutiple channels
-
-
-	def run(self):
-		for waveform in self.waveforms:
-			sampleOffset = round(self.sampleRate * self.offset)
-			intervalPropertyList = self.getIntervalPropertyList(waveform[sampleOffset:])
-			return self.getActiveNotesFromIntervalPropertyList2(intervalPropertyList)
-
-			# import pdb;pdb.set_trace()
-			# [a.print() for a in intervalPropertyList[100].dataPoints]
-			# visualiseArray(intervalPropertyList[100].fourierTransform, True)
 
 	def getIntervalProperty(self, interval):
-		def checkNeighbouringPoint(index, dataPoints):
-			for data in dataPoints:
-				if abs(index - data.index) <= 2:
-					return False
-			return True
-
-		originalFourierTransform = fft.fft(interval)
-		fourierTransform = [abs(float(a)) for a in originalFourierTransform][:len(interval) // 2]
-		#visualiseArray(fourierTransform, True)
-		dataPoints = []
-		while(len(dataPoints) < 10):
-			strength = max(fourierTransform)
-			index = fourierTransform.index(strength)
-			fourierTransform[index] = 0
-			if index == 0:	# Zeroth index is not valid data points
-				continue
-			if checkNeighbouringPoint(index, dataPoints):
-				dataPoints.append(FourierDataPoint(strength, index * self.sampleRate / len(interval), index, self.noteList))
-			else:
-				pass # TODO: we can strengthen the existing signal or something
-
-		return IntervalProperty(originalFourierTransform, dataPoints)
-
-
+		return IntervalProperty(fft.fft(interval))
 
 	def getIntervalPropertyList(self, waveform):
-		# Best intervalSize in Hz
+		# Split entire waveform into several "intervals" by time.
 		intervalPropertyList = []
 		for i in range(0, int(len(waveform) / self.samplesPerInterval)):
 			startIndex = i * self.samplesPerInterval
@@ -238,3 +109,36 @@ class NoteProcessor:
 			intervalPropertyList.append(intervalProperty)
 
 		return intervalPropertyList
+
+
+	def getActiveNotesFromIntervalPropertyList(self, intervalPropertyList):
+		timeFrequencyArray = []
+		for intervalProperty in intervalPropertyList:
+			modifiedFourierTransform = [abs(a) for a in intervalProperty.fourierTransform][: self.samplesPerInterval // 2]
+			timeFrequencyArray.append(modifiedFourierTransform)
+
+		shapeList = self.shapeStrategy.getShapeList(timeFrequencyArray)
+
+		# Debug plots.
+		# values.png will store the 2dArray of the frequency values.
+		# shape.png will store the filtered list of "shapes" from the original frequency vales.
+		# A shape is a consecutive cluster of 2dArray elements that will be grouped into one note.
+		self.d2Plot(timeFrequencyArray, "out/values.png")
+		shapeArray = [[0 for i in range(len(timeFrequencyArray[0]))] for j in range(len(timeFrequencyArray))]
+		for shape in shapeList:
+			if shape.isBaseCandidate:
+				freq = int(round(shape.centerOfMass))
+				for i in range(len(shape.magnitudeByTime)):
+					if shapeArray[i + shape.timeIndexStart][freq] < shape.magnitudeByTime[i]:
+						shapeArray[i + shape.timeIndexStart][freq] = shape.magnitudeByTime[i]
+		self.d2Plot(shapeArray, "out/shape.png")
+
+		activeNotes = self.getActiveNotesFromShapeList(shapeList)
+		return activeNotes
+
+	def run(self):
+		# Superimpose all channels into one waveform.
+		waveform = [sum([self.waveforms[i][j] for i in range(len(self.waveforms))]) for j in range(len(self.waveforms[0]))]
+		sampleOffset = round(self.sampleRate * self.offset)
+		intervalPropertyList = self.getIntervalPropertyList(waveform[sampleOffset:])
+		return self.getActiveNotesFromIntervalPropertyList(intervalPropertyList)

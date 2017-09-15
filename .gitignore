@@ -1,6 +1,7 @@
 # Output and test data folders:
 out/*
 !out/.gitkeep
+tests/newTestResources/
 
 
 # Byte-compiled / optimized / DLL files

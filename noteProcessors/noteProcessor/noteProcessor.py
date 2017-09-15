@@ -7,6 +7,7 @@ from activeNote import ActiveNote
 from noteProcessors.abstractNoteProcessor import AbstractNoteProcessor
 from noteProcessors.noteProcessor.baseShapeStrategy import BaseShapeStrategy
 from noteProcessors.noteProcessor.shapeStrategies import FilterShapeStrategy
+from utils import *
 
 
 
@@ -62,17 +63,14 @@ class NoteProcessor(AbstractNoteProcessor):
 		closestNote = None
 		diffPercent = None
 
-		# TODO: change this to bin search
-		for i in range(1, len(self.noteList)):
-			if frequency < self.noteList[i].frequency:
-				break
-		lowerNotePercent = frequency / self.noteList[i - 1].frequency
-		higherNotePercent = self.noteList[i].frequency / frequency
+		i = binSearch(self.noteList, lambda n: n.frequency, frequency, fuzzy=True)
+		lowerNotePercent = frequency / self.noteList[i].frequency
+		higherNotePercent = self.noteList[i + 1].frequency / frequency
 		if lowerNotePercent < higherNotePercent:
-			closestNote = self.noteList[i - 1]
+			closestNote = self.noteList[i]
 			diffPercent = lowerNotePercent
 		else:
-			closestNote = self.noteList[i]
+			closestNote = self.noteList[i + 1]
 			diffPercent = higherNotePercent
 		return closestNote, diffPercent
 

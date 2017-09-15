@@ -1,0 +1,6583 @@
+{
+    "notes": [
+        {
+            "loudness": 46.21102579081614,
+            "startTime": 44.75,
+            "note": {
+                "frequency": 1174.66,
+                "name": "D6"
+            },
+            "endTime": 44.75
+        },
+        {
+            "loudness": 41.21641707484115,
+            "startTime": 38.75,
+            "note": {
+                "frequency": 1174.66,
+                "name": "D6"
+            },
+            "endTime": 38.75
+        },
+        {
+            "loudness": 42.323256521059285,
+            "startTime": 57.8,
+            "note": {
+                "frequency": 1108.73,
+                "name": "C#6/Db6"
+            },
+            "endTime": 57.85
+        },
+        {
+            "loudness": 40.62516644409021,
+            "startTime": 48.1,
+            "note": {
+                "frequency": 1661.22,
+                "name": "G#6/Ab6"
+            },
+            "endTime": 48.1
+        },
+        {
+            "loudness": 48.8121870840295,
+            "startTime": 46.45,
+            "note": {
+                "frequency": 1174.66,
+                "name": "D6"
+            },
+            "endTime": 46.45
+        },
+        {
+            "loudness": 32.74261608615441,
+            "startTime": 32.5,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 32.55
+        },
+        {
+            "loudness": 35.89438939993446,
+            "startTime": 52.05,
+            "note": {
+                "frequency": 932.33,
+                "name": "A#5/Bb5"
+            },
+            "endTime": 52.1
+        },
+        {
+            "loudness": 37.503218170276156,
+            "startTime": 8.95,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 9.0
+        },
+        {
+            "loudness": 34.68077747946754,
+            "startTime": 57.35,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 57.4
+        },
+        {
+            "loudness": 40.369208115038155,
+            "startTime": 50.15,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 50.15
+        },
+        {
+            "loudness": 40.68221824095083,
+            "startTime": 34.3,
+            "note": {
+                "frequency": 932.33,
+                "name": "A#5/Bb5"
+            },
+            "endTime": 34.3
+        },
+        {
+            "loudness": 37.518758830527304,
+            "startTime": 56.95,
+            "note": {
+                "frequency": 1108.73,
+                "name": "C#6/Db6"
+            },
+            "endTime": 57.0
+        },
+        {
+            "loudness": 40.94484769794426,
+            "startTime": 54.05,
+            "note": {
+                "frequency": 932.33,
+                "name": "A#5/Bb5"
+            },
+            "endTime": 54.05
+        },
+        {
+            "loudness": 42.33988645764363,
+            "startTime": 37.7,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 37.7
+        },
+        {
+            "loudness": 40.32260532313613,
+            "startTime": 25.4,
+            "note": {
+                "frequency": 1108.73,
+                "name": "C#6/Db6"
+            },
+            "endTime": 25.4
+        },
+        {
+            "loudness": 46.57691728278159,
+            "startTime": 29.4,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 29.4
+        },
+        {
+            "loudness": 51.20308648643784,
+            "startTime": 45.65,
+            "note": {
+                "frequency": 523.25,
+                "name": "C5"
+            },
+            "endTime": 45.65
+        },
+        {
+            "loudness": 37.07391262621201,
+            "startTime": 44.4,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 44.45
+        },
+        {
+            "loudness": 42.943691041878004,
+            "startTime": 35.4,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 35.4
+        },
+        {
+            "loudness": 42.43124013711065,
+            "startTime": 56.75,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 56.8
+        },
+        {
+            "loudness": 44.647848332810995,
+            "startTime": 42.55,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 42.55
+        },
+        {
+            "loudness": 41.79177984990277,
+            "startTime": 37.6,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 37.6
+        },
+        {
+            "loudness": 43.855900422702746,
+            "startTime": 58.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 58.55
+        },
+        {
+            "loudness": 43.78016192157907,
+            "startTime": 51.55,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 51.7
+        },
+        {
+            "loudness": 33.960452193340515,
+            "startTime": 52.25,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 52.3
+        },
+        {
+            "loudness": 43.652966441756945,
+            "startTime": 27.6,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 27.6
+        },
+        {
+            "loudness": 43.12074151335558,
+            "startTime": 21.6,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 21.6
+        },
+        {
+            "loudness": 43.166585287560935,
+            "startTime": 53.7,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 53.7
+        },
+        {
+            "loudness": 41.524514143768215,
+            "startTime": 25.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 25.85
+        },
+        {
+            "loudness": 42.121933058290686,
+            "startTime": 55.4,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 55.4
+        },
+        {
+            "loudness": 40.417004145183846,
+            "startTime": 40.45,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 40.5
+        },
+        {
+            "loudness": 41.22062811988145,
+            "startTime": 16.75,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 16.75
+        },
+        {
+            "loudness": 33.313345920058424,
+            "startTime": 25.4,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 25.45
+        },
+        {
+            "loudness": 40.88250597059911,
+            "startTime": 17.2,
+            "note": {
+                "frequency": 523.25,
+                "name": "C5"
+            },
+            "endTime": 17.2
+        },
+        {
+            "loudness": 56.258661860828106,
+            "startTime": 56.3,
+            "note": {
+                "frequency": 1174.66,
+                "name": "D6"
+            },
+            "endTime": 56.3
+        },
+        {
+            "loudness": 46.57638600841454,
+            "startTime": 44.3,
+            "note": {
+                "frequency": 1174.66,
+                "name": "D6"
+            },
+            "endTime": 44.3
+        },
+        {
+            "loudness": 46.209964047339966,
+            "startTime": 36.95,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 37.15
+        },
+        {
+            "loudness": 33.54787279442907,
+            "startTime": 24.25,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 24.3
+        },
+        {
+            "loudness": 52.40602898331266,
+            "startTime": 58.0,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 58.1
+        },
+        {
+            "loudness": 41.55553178561124,
+            "startTime": 42.95,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 42.95
+        },
+        {
+            "loudness": 41.755760296695286,
+            "startTime": 38.35,
+            "note": {
+                "frequency": 1174.66,
+                "name": "D6"
+            },
+            "endTime": 38.35
+        },
+        {
+            "loudness": 40.85393166674168,
+            "startTime": 39.45,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 39.45
+        },
+        {
+            "loudness": 48.294980571486654,
+            "startTime": 22.75,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 22.75
+        },
+        {
+            "loudness": 51.70093319751139,
+            "startTime": 44.65,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 44.7
+        },
+        {
+            "loudness": 52.98195822203288,
+            "startTime": 49.4,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 49.4
+        },
+        {
+            "loudness": 52.27228912682285,
+            "startTime": 35.9,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 35.9
+        },
+        {
+            "loudness": 42.69430883666726,
+            "startTime": 43.35,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 43.4
+        },
+        {
+            "loudness": 40.38245202547506,
+            "startTime": 41.45,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 41.45
+        },
+        {
+            "loudness": 47.977205331387836,
+            "startTime": 46.25,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 46.4
+        },
+        {
+            "loudness": 41.491789816675485,
+            "startTime": 36.25,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 36.4
+        },
+        {
+            "loudness": 38.779936985826794,
+            "startTime": 51.8,
+            "note": {
+                "frequency": 523.25,
+                "name": "C5"
+            },
+            "endTime": 51.85
+        },
+        {
+            "loudness": 43.595478240219904,
+            "startTime": 24.75,
+            "note": {
+                "frequency": 523.25,
+                "name": "C5"
+            },
+            "endTime": 24.75
+        },
+        {
+            "loudness": 43.66725985111602,
+            "startTime": 55.05,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 55.05
+        },
+        {
+            "loudness": 44.30340063995522,
+            "startTime": 20.75,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 20.75
+        },
+        {
+            "loudness": 39.44234588462815,
+            "startTime": 44.7,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 44.75
+        },
+        {
+            "loudness": 43.795356532900406,
+            "startTime": 28.3,
+            "note": {
+                "frequency": 932.33,
+                "name": "A#5/Bb5"
+            },
+            "endTime": 28.3
+        },
+        {
+            "loudness": 34.85753282951985,
+            "startTime": 51.35,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 51.4
+        },
+        {
+            "loudness": 42.31289920653217,
+            "startTime": 45.8,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 45.8
+        },
+        {
+            "loudness": 39.643215951218544,
+            "startTime": 53.65,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 53.7
+        },
+        {
+            "loudness": 32.75716700424724,
+            "startTime": 32.9,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 32.95
+        },
+        {
+            "loudness": 34.820735097346336,
+            "startTime": 43.8,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 43.85
+        },
+        {
+            "loudness": 47.53839616969715,
+            "startTime": 50.75,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 50.75
+        },
+        {
+            "loudness": 39.884471350343325,
+            "startTime": 58.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 58.15
+        },
+        {
+            "loudness": 42.072894951130905,
+            "startTime": 39.0,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 39.0
+        },
+        {
+            "loudness": 47.5343363902185,
+            "startTime": 39.2,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 39.2
+        },
+        {
+            "loudness": 42.349502077463306,
+            "startTime": 28.1,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 28.1
+        },
+        {
+            "loudness": 41.42315005557506,
+            "startTime": 57.0,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 57.0
+        },
+        {
+            "loudness": 47.45594036092257,
+            "startTime": 28.4,
+            "note": {
+                "frequency": 523.25,
+                "name": "C5"
+            },
+            "endTime": 28.4
+        },
+        {
+            "loudness": 40.452103009342,
+            "startTime": 44.1,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 44.25
+        },
+        {
+            "loudness": 37.74364690981585,
+            "startTime": 17.65,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 17.7
+        },
+        {
+            "loudness": 49.65423476577391,
+            "startTime": 38.75,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 38.75
+        },
+        {
+            "loudness": 50.89079600164721,
+            "startTime": 44.1,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 44.1
+        },
+        {
+            "loudness": 41.3173985244909,
+            "startTime": 28.75,
+            "note": {
+                "frequency": 622.25,
+                "name": "D#5/Eb5"
+            },
+            "endTime": 28.8
+        },
+        {
+            "loudness": 48.12356373800627,
+            "startTime": 40.1,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 40.1
+        },
+        {
+            "loudness": 47.10655524272896,
+            "startTime": 40.25,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 40.25
+        },
+        {
+            "loudness": 42.06686525887602,
+            "startTime": 26.95,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 26.95
+        },
+        {
+            "loudness": 57.10105653237256,
+            "startTime": 25.2,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 25.2
+        },
+        {
+            "loudness": 41.79842074819352,
+            "startTime": 56.05,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 56.25
+        },
+        {
+            "loudness": 35.17972073047298,
+            "startTime": 55.15,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 55.2
+        },
+        {
+            "loudness": 46.8967664216834,
+            "startTime": 55.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 55.4
+        },
+        {
+            "loudness": 47.18089217266587,
+            "startTime": 55.65,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 55.65
+        },
+        {
+            "loudness": 47.642306695369044,
+            "startTime": 48.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 48.4
+        },
+        {
+            "loudness": 41.17589766134581,
+            "startTime": 46.75,
+            "note": {
+                "frequency": 1046.5,
+                "name": "C6"
+            },
+            "endTime": 46.75
+        },
+        {
+            "loudness": 46.97185392959382,
+            "startTime": 58.05,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 58.1
+        },
+        {
+            "loudness": 35.96035586214833,
+            "startTime": 54.7,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 54.8
+        },
+        {
+            "loudness": 44.78109116621196,
+            "startTime": 45.45,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 45.45
+        },
+        {
+            "loudness": 50.648369208528834,
+            "startTime": 53.85,
+            "note": {
+                "frequency": 523.25,
+                "name": "C5"
+            },
+            "endTime": 53.85
+        },
+        {
+            "loudness": 43.98137721242894,
+            "startTime": 48.75,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 48.75
+        },
+        {
+            "loudness": 38.216328602570435,
+            "startTime": 37.6,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 37.65
+        },
+        {
+            "loudness": 42.47354535099213,
+            "startTime": 58.05,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 58.1
+        },
+        {
+            "loudness": 48.57242466933326,
+            "startTime": 44.95,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 45.05
+        },
+        {
+            "loudness": 45.870549080608136,
+            "startTime": 45.2,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 45.2
+        },
+        {
+            "loudness": 47.6093277736154,
+            "startTime": 45.4,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 45.4
+        },
+        {
+            "loudness": 41.57951378512769,
+            "startTime": 41.05,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 41.05
+        },
+        {
+            "loudness": 37.56494948862985,
+            "startTime": 31.85,
+            "note": {
+                "frequency": 622.25,
+                "name": "D#5/Eb5"
+            },
+            "endTime": 31.9
+        },
+        {
+            "loudness": 43.49381954400629,
+            "startTime": 53.4,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 53.4
+        },
+        {
+            "loudness": 35.67151143680421,
+            "startTime": 58.0,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 58.05
+        },
+        {
+            "loudness": 48.71786866635391,
+            "startTime": 29.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 29.4
+        },
+        {
+            "loudness": 43.55920751142173,
+            "startTime": 38.3,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 38.35
+        },
+        {
+            "loudness": 41.83209374958234,
+            "startTime": 38.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 38.5
+        },
+        {
+            "loudness": 45.70735206102765,
+            "startTime": 49.6,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 49.6
+        },
+        {
+            "loudness": 47.54459190185483,
+            "startTime": 52.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 52.5
+        },
+        {
+            "loudness": 55.49290210878463,
+            "startTime": 41.45,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 41.7
+        },
+        {
+            "loudness": 43.03314142928827,
+            "startTime": 37.4,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 37.4
+        },
+        {
+            "loudness": 39.8944840174546,
+            "startTime": 59.05,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 59.1
+        },
+        {
+            "loudness": 46.46786660419051,
+            "startTime": 59.2,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 59.2
+        },
+        {
+            "loudness": 32.86570559676313,
+            "startTime": 42.75,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 42.8
+        },
+        {
+            "loudness": 45.859606817897394,
+            "startTime": 45.2,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 45.2
+        },
+        {
+            "loudness": 40.8619006694278,
+            "startTime": 25.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 25.3
+        },
+        {
+            "loudness": 41.773275219985656,
+            "startTime": 46.05,
+            "note": {
+                "frequency": 415.3,
+                "name": "G#4/Ab4"
+            },
+            "endTime": 46.05
+        },
+        {
+            "loudness": 43.4294751641783,
+            "startTime": 46.05,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 46.15
+        },
+        {
+            "loudness": 47.564715801201466,
+            "startTime": 33.2,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 33.2
+        },
+        {
+            "loudness": 52.14465094607436,
+            "startTime": 37.4,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 37.4
+        },
+        {
+            "loudness": 39.306310413213275,
+            "startTime": 21.2,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 21.25
+        },
+        {
+            "loudness": 47.20916973019659,
+            "startTime": 40.05,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 40.1
+        },
+        {
+            "loudness": 41.88664546267717,
+            "startTime": 48.15,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 48.25
+        },
+        {
+            "loudness": 45.21460352436725,
+            "startTime": 17.8,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 17.9
+        },
+        {
+            "loudness": 45.720900937781764,
+            "startTime": 54.95,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 54.95
+        },
+        {
+            "loudness": 42.713899383956324,
+            "startTime": 14.95,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 15.0
+        },
+        {
+            "loudness": 51.517489838885396,
+            "startTime": 48.05,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 48.15
+        },
+        {
+            "loudness": 41.3152154900789,
+            "startTime": 20.3,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 20.3
+        },
+        {
+            "loudness": 43.8973164521064,
+            "startTime": 26.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 26.5
+        },
+        {
+            "loudness": 55.716204961190684,
+            "startTime": 28.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 28.3
+        },
+        {
+            "loudness": 40.783733161705484,
+            "startTime": 36.0,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 36.15
+        },
+        {
+            "loudness": 48.997527085336856,
+            "startTime": 41.65,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 41.65
+        },
+        {
+            "loudness": 44.09955767213331,
+            "startTime": 57.65,
+            "note": {
+                "frequency": 554.37,
+                "name": "C#5/Db5"
+            },
+            "endTime": 57.65
+        },
+        {
+            "loudness": 46.49580303676187,
+            "startTime": 42.1,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 42.1
+        },
+        {
+            "loudness": 50.36244748714979,
+            "startTime": 43.35,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 43.5
+        },
+        {
+            "loudness": 46.19623442929955,
+            "startTime": 24.75,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 24.75
+        },
+        {
+            "loudness": 41.180689615105045,
+            "startTime": 40.3,
+            "note": {
+                "frequency": 830.61,
+                "name": "G#5/Ab5"
+            },
+            "endTime": 40.3
+        },
+        {
+            "loudness": 41.41125054738089,
+            "startTime": 22.75,
+            "note": {
+                "frequency": 622.25,
+                "name": "D#5/Eb5"
+            },
+            "endTime": 22.75
+        },
+        {
+            "loudness": 47.8317630838451,
+            "startTime": 29.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 29.7
+        },
+        {
+            "loudness": 59.204926238168085,
+            "startTime": 22.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 22.3
+        },
+        {
+            "loudness": 41.706488256999094,
+            "startTime": 20.5,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 20.5
+        },
+        {
+            "loudness": 35.37082650634891,
+            "startTime": 56.45,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 56.5
+        },
+        {
+            "loudness": 52.4848507194901,
+            "startTime": 47.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 47.65
+        },
+        {
+            "loudness": 47.962991947023575,
+            "startTime": 44.3,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 44.4
+        },
+        {
+            "loudness": 45.13105729680174,
+            "startTime": 55.6,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 55.6
+        },
+        {
+            "loudness": 46.529680968662845,
+            "startTime": 27.2,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 27.2
+        },
+        {
+            "loudness": 49.43078758254744,
+            "startTime": 47.4,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 47.4
+        },
+        {
+            "loudness": 41.02468180716946,
+            "startTime": 41.35,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 41.4
+        },
+        {
+            "loudness": 49.018781299215604,
+            "startTime": 24.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 24.15
+        },
+        {
+            "loudness": 46.632457028603426,
+            "startTime": 24.25,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 24.3
+        },
+        {
+            "loudness": 54.07630774264225,
+            "startTime": 49.4,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 49.4
+        },
+        {
+            "loudness": 53.114101479682716,
+            "startTime": 29.9,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 29.9
+        },
+        {
+            "loudness": 45.60316682955619,
+            "startTime": 30.5,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 30.5
+        },
+        {
+            "loudness": 50.131673097077524,
+            "startTime": 43.7,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 43.7
+        },
+        {
+            "loudness": 46.622679029016886,
+            "startTime": 46.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 46.5
+        },
+        {
+            "loudness": 45.095591847638275,
+            "startTime": 52.35,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 52.35
+        },
+        {
+            "loudness": 56.253294980630386,
+            "startTime": 48.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 48.1
+        },
+        {
+            "loudness": 48.094295093426254,
+            "startTime": 55.85,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 55.9
+        },
+        {
+            "loudness": 42.09221823336973,
+            "startTime": 49.2,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 49.2
+        },
+        {
+            "loudness": 41.48253501684176,
+            "startTime": 20.15,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 20.2
+        },
+        {
+            "loudness": 41.4675694544782,
+            "startTime": 36.65,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 36.65
+        },
+        {
+            "loudness": 45.67352574594952,
+            "startTime": 58.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 58.3
+        },
+        {
+            "loudness": 41.74200768988302,
+            "startTime": 27.4,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 27.4
+        },
+        {
+            "loudness": 55.89892145580176,
+            "startTime": 40.3,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 40.3
+        },
+        {
+            "loudness": 37.19040446537299,
+            "startTime": 22.25,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 22.3
+        },
+        {
+            "loudness": 45.62004876652331,
+            "startTime": 20.95,
+            "note": {
+                "frequency": 415.3,
+                "name": "G#4/Ab4"
+            },
+            "endTime": 21.0
+        },
+        {
+            "loudness": 50.98492762147444,
+            "startTime": 43.6,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 43.65
+        },
+        {
+            "loudness": 45.43554493370175,
+            "startTime": 49.85,
+            "note": {
+                "frequency": 415.3,
+                "name": "G#4/Ab4"
+            },
+            "endTime": 49.85
+        },
+        {
+            "loudness": 46.96418236788254,
+            "startTime": 28.75,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 28.85
+        },
+        {
+            "loudness": 40.52159023665052,
+            "startTime": 22.0,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 22.0
+        },
+        {
+            "loudness": 49.668082474777485,
+            "startTime": 52.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 52.3
+        },
+        {
+            "loudness": 58.85226602107688,
+            "startTime": 40.05,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 40.05
+        },
+        {
+            "loudness": 41.67260221650499,
+            "startTime": 39.05,
+            "note": {
+                "frequency": 698.46,
+                "name": "F5"
+            },
+            "endTime": 39.05
+        },
+        {
+            "loudness": 42.05158433669966,
+            "startTime": 41.85,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 41.85
+        },
+        {
+            "loudness": 42.07507327557675,
+            "startTime": 59.2,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 59.2
+        },
+        {
+            "loudness": 44.65811325542878,
+            "startTime": 28.5,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 28.5
+        },
+        {
+            "loudness": 40.7577512213394,
+            "startTime": 15.35,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 15.35
+        },
+        {
+            "loudness": 41.75264888833852,
+            "startTime": 14.65,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 14.75
+        },
+        {
+            "loudness": 40.93079994923793,
+            "startTime": 30.0,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 30.05
+        },
+        {
+            "loudness": 55.732990841195196,
+            "startTime": 37.4,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 37.4
+        },
+        {
+            "loudness": 45.420952506710435,
+            "startTime": 32.05,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 32.05
+        },
+        {
+            "loudness": 40.739934504188966,
+            "startTime": 32.5,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 32.5
+        },
+        {
+            "loudness": 41.55903768115712,
+            "startTime": 55.55,
+            "note": {
+                "frequency": 1174.66,
+                "name": "D6"
+            },
+            "endTime": 55.55
+        },
+        {
+            "loudness": 42.3948606800742,
+            "startTime": 19.9,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 19.9
+        },
+        {
+            "loudness": 60.19234336056126,
+            "startTime": 52.05,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 52.05
+        },
+        {
+            "loudness": 44.91735929897213,
+            "startTime": 59.25,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 59.4
+        },
+        {
+            "loudness": 49.92720143416183,
+            "startTime": 42.95,
+            "note": {
+                "frequency": 392.0,
+                "name": "G4"
+            },
+            "endTime": 43.05
+        },
+        {
+            "loudness": 56.675963468071686,
+            "startTime": 49.4,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 49.4
+        },
+        {
+            "loudness": 47.38083777559461,
+            "startTime": 47.85,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 47.85
+        },
+        {
+            "loudness": 51.11960536883716,
+            "startTime": 32.5,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 32.5
+        },
+        {
+            "loudness": 40.375353804390876,
+            "startTime": 59.25,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 59.25
+        },
+        {
+            "loudness": 47.51046011523755,
+            "startTime": 19.4,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 19.4
+        },
+        {
+            "loudness": 49.97583357466681,
+            "startTime": 54.05,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 54.15
+        },
+        {
+            "loudness": 56.59223150739342,
+            "startTime": 54.3,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 54.3
+        },
+        {
+            "loudness": 46.8680526269797,
+            "startTime": 54.4,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 54.45
+        },
+        {
+            "loudness": 45.82116600543959,
+            "startTime": 20.5,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 20.5
+        },
+        {
+            "loudness": 45.63728087663501,
+            "startTime": 30.3,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 30.35
+        },
+        {
+            "loudness": 48.16018004752581,
+            "startTime": 41.95,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 42.15
+        },
+        {
+            "loudness": 47.71978209142419,
+            "startTime": 41.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 41.55
+        },
+        {
+            "loudness": 41.975153293655985,
+            "startTime": 45.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 45.3
+        },
+        {
+            "loudness": 50.305355243610286,
+            "startTime": 48.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 48.5
+        },
+        {
+            "loudness": 43.993046534146515,
+            "startTime": 53.2,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 53.25
+        },
+        {
+            "loudness": 43.31875295258522,
+            "startTime": 13.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 13.1
+        },
+        {
+            "loudness": 43.285507877370186,
+            "startTime": 55.2,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 55.2
+        },
+        {
+            "loudness": 45.15072023467273,
+            "startTime": 55.2,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 55.2
+        },
+        {
+            "loudness": 47.432158888914934,
+            "startTime": 14.55,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 14.55
+        },
+        {
+            "loudness": 41.47992441576302,
+            "startTime": 13.85,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 13.85
+        },
+        {
+            "loudness": 38.07702907321917,
+            "startTime": 29.15,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 29.2
+        },
+        {
+            "loudness": 44.606827442946745,
+            "startTime": 29.4,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 29.4
+        },
+        {
+            "loudness": 49.89222574935989,
+            "startTime": 50.95,
+            "note": {
+                "frequency": 1046.5,
+                "name": "C6"
+            },
+            "endTime": 50.95
+        },
+        {
+            "loudness": 34.80713031353041,
+            "startTime": 34.3,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 34.35
+        },
+        {
+            "loudness": 50.908935526430454,
+            "startTime": 52.05,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 52.2
+        },
+        {
+            "loudness": 52.07001190249194,
+            "startTime": 37.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 37.85
+        },
+        {
+            "loudness": 55.61145364404059,
+            "startTime": 57.2,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 57.2
+        },
+        {
+            "loudness": 44.406750414139914,
+            "startTime": 39.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 39.2
+        },
+        {
+            "loudness": 37.8805927014559,
+            "startTime": 44.2,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 44.25
+        },
+        {
+            "loudness": 44.04014656699251,
+            "startTime": 14.05,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 14.05
+        },
+        {
+            "loudness": 43.498399558315555,
+            "startTime": 51.6,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 51.6
+        },
+        {
+            "loudness": 43.5479061320597,
+            "startTime": 49.2,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 49.2
+        },
+        {
+            "loudness": 41.40257689122269,
+            "startTime": 57.6,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 57.6
+        },
+        {
+            "loudness": 64.90688237917472,
+            "startTime": 54.05,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 54.15
+        },
+        {
+            "loudness": 51.35868847496188,
+            "startTime": 34.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 34.3
+        },
+        {
+            "loudness": 41.450662833431366,
+            "startTime": 40.1,
+            "note": {
+                "frequency": 1479.98,
+                "name": "F#6/Gb6"
+            },
+            "endTime": 40.1
+        },
+        {
+            "loudness": 40.87467251932968,
+            "startTime": 46.95,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 46.95
+        },
+        {
+            "loudness": 44.79181689329799,
+            "startTime": 58.3,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 58.3
+        },
+        {
+            "loudness": 39.4201195797374,
+            "startTime": 58.6,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 58.65
+        },
+        {
+            "loudness": 47.97960065137727,
+            "startTime": 5.45,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 5.6
+        },
+        {
+            "loudness": 50.232724949124574,
+            "startTime": 56.95,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 56.95
+        },
+        {
+            "loudness": 55.57539671451913,
+            "startTime": 36.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 36.5
+        },
+        {
+            "loudness": 38.378281232865085,
+            "startTime": 17.7,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 17.75
+        },
+        {
+            "loudness": 43.86821816230625,
+            "startTime": 41.2,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 41.25
+        },
+        {
+            "loudness": 48.83608161248863,
+            "startTime": 46.75,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 46.8
+        },
+        {
+            "loudness": 49.00661525388534,
+            "startTime": 48.2,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 48.3
+        },
+        {
+            "loudness": 44.4820723540667,
+            "startTime": 41.3,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 41.3
+        },
+        {
+            "loudness": 44.555813475257324,
+            "startTime": 41.4,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 41.4
+        },
+        {
+            "loudness": 40.67862334031824,
+            "startTime": 41.5,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 41.5
+        },
+        {
+            "loudness": 41.947408916250716,
+            "startTime": 41.6,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 41.6
+        },
+        {
+            "loudness": 48.31589883583837,
+            "startTime": 37.9,
+            "note": {
+                "frequency": 392.0,
+                "name": "G4"
+            },
+            "endTime": 38.05
+        },
+        {
+            "loudness": 50.54241393235509,
+            "startTime": 43.2,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 43.2
+        },
+        {
+            "loudness": 59.47844933553841,
+            "startTime": 53.25,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 53.25
+        },
+        {
+            "loudness": 44.93525395787297,
+            "startTime": 53.35,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 53.35
+        },
+        {
+            "loudness": 47.40955437477993,
+            "startTime": 28.15,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 28.2
+        },
+        {
+            "loudness": 55.4008860942238,
+            "startTime": 26.5,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 26.55
+        },
+        {
+            "loudness": 40.854067429873034,
+            "startTime": 2.1,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 2.1
+        },
+        {
+            "loudness": 51.46423978218163,
+            "startTime": 29.85,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 29.85
+        },
+        {
+            "loudness": 49.292199441816145,
+            "startTime": 55.2,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 55.2
+        },
+        {
+            "loudness": 41.834512201364404,
+            "startTime": 55.4,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 55.4
+        },
+        {
+            "loudness": 44.771115228078045,
+            "startTime": 17.6,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 17.7
+        },
+        {
+            "loudness": 41.44147493740438,
+            "startTime": 24.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 24.1
+        },
+        {
+            "loudness": 47.104697120962605,
+            "startTime": 58.2,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 58.45
+        },
+        {
+            "loudness": 51.01896896726937,
+            "startTime": 25.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 25.3
+        },
+        {
+            "loudness": 61.173792309313555,
+            "startTime": 34.75,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 34.75
+        },
+        {
+            "loudness": 49.50069321809019,
+            "startTime": 35.35,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 35.35
+        },
+        {
+            "loudness": 42.60889400962121,
+            "startTime": 8.1,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 8.1
+        },
+        {
+            "loudness": 49.920761649362774,
+            "startTime": 34.75,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 34.8
+        },
+        {
+            "loudness": 46.27356812600926,
+            "startTime": 39.4,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 39.45
+        },
+        {
+            "loudness": 44.564740170645294,
+            "startTime": 39.6,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 39.6
+        },
+        {
+            "loudness": 46.427217279731195,
+            "startTime": 43.85,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 43.85
+        },
+        {
+            "loudness": 53.23221553974086,
+            "startTime": 44.95,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 44.95
+        },
+        {
+            "loudness": 48.562887656667556,
+            "startTime": 44.0,
+            "note": {
+                "frequency": 392.0,
+                "name": "G4"
+            },
+            "endTime": 44.15
+        },
+        {
+            "loudness": 45.91402648438325,
+            "startTime": 32.95,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 32.95
+        },
+        {
+            "loudness": 46.46101893721769,
+            "startTime": 52.75,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 52.75
+        },
+        {
+            "loudness": 40.41089363405757,
+            "startTime": 53.05,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 53.05
+        },
+        {
+            "loudness": 41.21943375589521,
+            "startTime": 54.75,
+            "note": {
+                "frequency": 830.61,
+                "name": "G#5/Ab5"
+            },
+            "endTime": 54.75
+        },
+        {
+            "loudness": 43.859679940576854,
+            "startTime": 19.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 19.85
+        },
+        {
+            "loudness": 40.60292244954311,
+            "startTime": 43.0,
+            "note": {
+                "frequency": 2349.32,
+                "name": "D7"
+            },
+            "endTime": 43.0
+        },
+        {
+            "loudness": 41.405825783330656,
+            "startTime": 40.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 40.55
+        },
+        {
+            "loudness": 42.43867861569469,
+            "startTime": 40.75,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 40.75
+        },
+        {
+            "loudness": 48.34738218048839,
+            "startTime": 8.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 8.7
+        },
+        {
+            "loudness": 38.22533138273538,
+            "startTime": 16.7,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 16.8
+        },
+        {
+            "loudness": 49.35097054437915,
+            "startTime": 1.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 1.5
+        },
+        {
+            "loudness": 40.40878204409798,
+            "startTime": 52.1,
+            "note": {
+                "frequency": 2637.02,
+                "name": "E7"
+            },
+            "endTime": 52.1
+        },
+        {
+            "loudness": 45.781092495955974,
+            "startTime": 31.2,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 31.2
+        },
+        {
+            "loudness": 40.66740992806474,
+            "startTime": 19.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 19.2
+        },
+        {
+            "loudness": 41.18115124692476,
+            "startTime": 36.75,
+            "note": {
+                "frequency": 830.61,
+                "name": "G#5/Ab5"
+            },
+            "endTime": 36.75
+        },
+        {
+            "loudness": 48.23905576824911,
+            "startTime": 56.2,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 56.3
+        },
+        {
+            "loudness": 47.35932949776555,
+            "startTime": 11.45,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 11.6
+        },
+        {
+            "loudness": 56.72482991498149,
+            "startTime": 29.3,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 29.5
+        },
+        {
+            "loudness": 48.85593196329472,
+            "startTime": 14.15,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 14.2
+        },
+        {
+            "loudness": 44.25640631373015,
+            "startTime": 14.65,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 14.65
+        },
+        {
+            "loudness": 53.61392046179343,
+            "startTime": 47.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 47.6
+        },
+        {
+            "loudness": 50.529288364458836,
+            "startTime": 38.95,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 38.95
+        },
+        {
+            "loudness": 48.880566208207895,
+            "startTime": 2.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 2.7
+        },
+        {
+            "loudness": 42.05613180783206,
+            "startTime": 13.5,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 13.5
+        },
+        {
+            "loudness": 40.96180075930958,
+            "startTime": 55.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 55.55
+        },
+        {
+            "loudness": 42.00325153649139,
+            "startTime": 38.35,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 38.35
+        },
+        {
+            "loudness": 40.4104774850494,
+            "startTime": 24.95,
+            "note": {
+                "frequency": 392.0,
+                "name": "G4"
+            },
+            "endTime": 25.0
+        },
+        {
+            "loudness": 41.72135369983168,
+            "startTime": 40.1,
+            "note": {
+                "frequency": 2637.02,
+                "name": "E7"
+            },
+            "endTime": 40.1
+        },
+        {
+            "loudness": 43.94576084898968,
+            "startTime": 51.85,
+            "note": {
+                "frequency": 2349.32,
+                "name": "D7"
+            },
+            "endTime": 52.0
+        },
+        {
+            "loudness": 47.10375741742861,
+            "startTime": 46.9,
+            "note": {
+                "frequency": 392.0,
+                "name": "G4"
+            },
+            "endTime": 47.05
+        },
+        {
+            "loudness": 55.20342352514106,
+            "startTime": 47.2,
+            "note": {
+                "frequency": 415.3,
+                "name": "G#4/Ab4"
+            },
+            "endTime": 47.2
+        },
+        {
+            "loudness": 42.332510983582665,
+            "startTime": 41.85,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 41.85
+        },
+        {
+            "loudness": 48.99162740827416,
+            "startTime": 42.3,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 42.3
+        },
+        {
+            "loudness": 49.270327139356084,
+            "startTime": 20.95,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 20.95
+        },
+        {
+            "loudness": 46.268065439706675,
+            "startTime": 44.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 44.7
+        },
+        {
+            "loudness": 46.38721299826523,
+            "startTime": 49.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 50.0
+        },
+        {
+            "loudness": 49.907292923439286,
+            "startTime": 50.1,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 50.1
+        },
+        {
+            "loudness": 40.997776264840844,
+            "startTime": 40.75,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 40.75
+        },
+        {
+            "loudness": 44.691812658595595,
+            "startTime": 59.3,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 59.35
+        },
+        {
+            "loudness": 40.76415317616431,
+            "startTime": 43.2,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 43.2
+        },
+        {
+            "loudness": 48.507922072875886,
+            "startTime": 17.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 17.3
+        },
+        {
+            "loudness": 40.84648002863317,
+            "startTime": 45.85,
+            "note": {
+                "frequency": 2349.32,
+                "name": "D7"
+            },
+            "endTime": 45.85
+        },
+        {
+            "loudness": 56.89382609235189,
+            "startTime": 11.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 11.3
+        },
+        {
+            "loudness": 48.31737649879899,
+            "startTime": 18.75,
+            "note": {
+                "frequency": 932.33,
+                "name": "A#5/Bb5"
+            },
+            "endTime": 18.75
+        },
+        {
+            "loudness": 41.5174165390982,
+            "startTime": 44.8,
+            "note": {
+                "frequency": 1975.53,
+                "name": "B6"
+            },
+            "endTime": 44.8
+        },
+        {
+            "loudness": 42.867492182565044,
+            "startTime": 26.7,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 26.8
+        },
+        {
+            "loudness": 44.633585856401204,
+            "startTime": 43.85,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 43.85
+        },
+        {
+            "loudness": 40.96156922122851,
+            "startTime": 44.0,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 44.0
+        },
+        {
+            "loudness": 45.07500804422273,
+            "startTime": 55.65,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 55.65
+        },
+        {
+            "loudness": 49.27876501319943,
+            "startTime": 55.85,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 55.85
+        },
+        {
+            "loudness": 43.532764622904125,
+            "startTime": 22.5,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 22.5
+        },
+        {
+            "loudness": 43.06554801903243,
+            "startTime": 22.75,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 22.85
+        },
+        {
+            "loudness": 40.49811258672564,
+            "startTime": 51.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 51.0
+        },
+        {
+            "loudness": 45.87087246535355,
+            "startTime": 29.0,
+            "note": {
+                "frequency": 392.0,
+                "name": "G4"
+            },
+            "endTime": 29.0
+        },
+        {
+            "loudness": 42.79807331721749,
+            "startTime": 29.1,
+            "note": {
+                "frequency": 392.0,
+                "name": "G4"
+            },
+            "endTime": 29.15
+        },
+        {
+            "loudness": 54.22220336639235,
+            "startTime": 40.25,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 40.25
+        },
+        {
+            "loudness": 51.981916968383416,
+            "startTime": 35.45,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 35.6
+        },
+        {
+            "loudness": 37.772218635097,
+            "startTime": 46.5,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 46.7
+        },
+        {
+            "loudness": 63.09661281318507,
+            "startTime": 53.45,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 53.5
+        },
+        {
+            "loudness": 53.8571457104025,
+            "startTime": 38.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 38.5
+        },
+        {
+            "loudness": 47.54966541576593,
+            "startTime": 38.7,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 38.8
+        },
+        {
+            "loudness": 42.926837697434905,
+            "startTime": 38.95,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 38.95
+        },
+        {
+            "loudness": 41.99895230710492,
+            "startTime": 56.5,
+            "note": {
+                "frequency": 2637.02,
+                "name": "E7"
+            },
+            "endTime": 56.55
+        },
+        {
+            "loudness": 47.83802606428421,
+            "startTime": 50.95,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 51.05
+        },
+        {
+            "loudness": 41.06851000175319,
+            "startTime": 51.2,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 51.2
+        },
+        {
+            "loudness": 70.29241169285804,
+            "startTime": 40.95,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 41.0
+        },
+        {
+            "loudness": 44.597067130219855,
+            "startTime": 15.65,
+            "note": {
+                "frequency": 415.3,
+                "name": "G#4/Ab4"
+            },
+            "endTime": 15.65
+        },
+        {
+            "loudness": 47.52759955178452,
+            "startTime": 26.7,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 26.75
+        },
+        {
+            "loudness": 45.65718456218206,
+            "startTime": 26.95,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 26.95
+        },
+        {
+            "loudness": 47.44236225408531,
+            "startTime": 58.75,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 58.75
+        },
+        {
+            "loudness": 47.79115648396411,
+            "startTime": 52.25,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 52.25
+        },
+        {
+            "loudness": 46.934055911763025,
+            "startTime": 52.75,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 52.75
+        },
+        {
+            "loudness": 47.72640546118818,
+            "startTime": 32.7,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 32.75
+        },
+        {
+            "loudness": 49.118940332687146,
+            "startTime": 32.95,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 33.0
+        },
+        {
+            "loudness": 63.83594607194111,
+            "startTime": 24.75,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 25.0
+        },
+        {
+            "loudness": 46.79514346154801,
+            "startTime": 28.05,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 28.1
+        },
+        {
+            "loudness": 55.55040884754292,
+            "startTime": 2.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 2.45
+        },
+        {
+            "loudness": 49.253770065452606,
+            "startTime": 55.9,
+            "note": {
+                "frequency": 392.0,
+                "name": "G4"
+            },
+            "endTime": 55.95
+        },
+        {
+            "loudness": 40.34777635363572,
+            "startTime": 50.75,
+            "note": {
+                "frequency": 2349.32,
+                "name": "D7"
+            },
+            "endTime": 50.75
+        },
+        {
+            "loudness": 49.66762891458765,
+            "startTime": 47.7,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 47.7
+        },
+        {
+            "loudness": 40.486745083581496,
+            "startTime": 47.9,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 47.9
+        },
+        {
+            "loudness": 40.99324797361798,
+            "startTime": 48.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 48.15
+        },
+        {
+            "loudness": 42.469100782622064,
+            "startTime": 40.3,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 40.35
+        },
+        {
+            "loudness": 50.62734602239968,
+            "startTime": 26.95,
+            "note": {
+                "frequency": 466.16,
+                "name": "A#4/Bb4"
+            },
+            "endTime": 26.95
+        },
+        {
+            "loudness": 58.946765045465725,
+            "startTime": 56.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 56.8
+        },
+        {
+            "loudness": 41.46839906772291,
+            "startTime": 52.3,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 52.35
+        },
+        {
+            "loudness": 60.076297027310986,
+            "startTime": 10.75,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 10.95
+        },
+        {
+            "loudness": 45.11255566339876,
+            "startTime": 58.3,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 58.45
+        },
+        {
+            "loudness": 45.37128782787299,
+            "startTime": 46.3,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 46.45
+        },
+        {
+            "loudness": 50.43963377468774,
+            "startTime": 53.1,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 53.15
+        },
+        {
+            "loudness": 40.53055084312311,
+            "startTime": 53.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 53.4
+        },
+        {
+            "loudness": 47.71417550869678,
+            "startTime": 4.3,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 4.45
+        },
+        {
+            "loudness": 48.036389600791665,
+            "startTime": 56.3,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 56.4
+        },
+        {
+            "loudness": 42.04073304711431,
+            "startTime": 56.8,
+            "note": {
+                "frequency": 1975.53,
+                "name": "B6"
+            },
+            "endTime": 56.8
+        },
+        {
+            "loudness": 50.192434282582795,
+            "startTime": 20.7,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 20.75
+        },
+        {
+            "loudness": 48.557186079190025,
+            "startTime": 20.95,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 20.95
+        },
+        {
+            "loudness": 50.217930544957625,
+            "startTime": 21.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 21.2
+        },
+        {
+            "loudness": 50.462373677732096,
+            "startTime": 25.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 25.5
+        },
+        {
+            "loudness": 49.523563851604436,
+            "startTime": 25.85,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 25.85
+        },
+        {
+            "loudness": 49.73012118292554,
+            "startTime": 44.0,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 44.1
+        },
+        {
+            "loudness": 45.386603797636134,
+            "startTime": 41.1,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 41.2
+        },
+        {
+            "loudness": 45.431823044150846,
+            "startTime": 41.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 41.4
+        },
+        {
+            "loudness": 47.294105750282945,
+            "startTime": 47.25,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 47.35
+        },
+        {
+            "loudness": 43.51721314432864,
+            "startTime": 57.2,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 57.2
+        },
+        {
+            "loudness": 52.22060378245139,
+            "startTime": 50.5,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 50.6
+        },
+        {
+            "loudness": 49.19448327404155,
+            "startTime": 7.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 7.5
+        },
+        {
+            "loudness": 59.156744232280175,
+            "startTime": 5.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 6.2
+        },
+        {
+            "loudness": 43.98601827736738,
+            "startTime": 45.2,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 45.2
+        },
+        {
+            "loudness": 51.47498718129074,
+            "startTime": 4.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 4.25
+        },
+        {
+            "loudness": 60.677898037592946,
+            "startTime": 27.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 27.95
+        },
+        {
+            "loudness": 46.95917697028393,
+            "startTime": 40.35,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 40.4
+        },
+        {
+            "loudness": 41.60242767730578,
+            "startTime": 46.05,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 46.1
+        },
+        {
+            "loudness": 47.16788582106232,
+            "startTime": 14.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 14.8
+        },
+        {
+            "loudness": 34.91814624563249,
+            "startTime": 55.8,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 55.85
+        },
+        {
+            "loudness": 45.303071657455654,
+            "startTime": 55.95,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 56.0
+        },
+        {
+            "loudness": 49.325556956369006,
+            "startTime": 56.1,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 56.1
+        },
+        {
+            "loudness": 51.16261112049916,
+            "startTime": 10.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 10.3
+        },
+        {
+            "loudness": 55.40878198584359,
+            "startTime": 8.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 8.45
+        },
+        {
+            "loudness": 54.282265274317574,
+            "startTime": 22.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 22.3
+        },
+        {
+            "loudness": 49.18594351697642,
+            "startTime": 43.5,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 43.5
+        },
+        {
+            "loudness": 56.752092777690066,
+            "startTime": 4.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 4.9
+        },
+        {
+            "loudness": 58.94308279155591,
+            "startTime": 5.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 5.6
+        },
+        {
+            "loudness": 49.89333245091962,
+            "startTime": 23.45,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 23.6
+        },
+        {
+            "loudness": 42.96110910656574,
+            "startTime": 56.75,
+            "note": {
+                "frequency": 2349.32,
+                "name": "D7"
+            },
+            "endTime": 56.85
+        },
+        {
+            "loudness": 53.04109503854528,
+            "startTime": 52.35,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 52.4
+        },
+        {
+            "loudness": 53.25943799267372,
+            "startTime": 17.45,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 17.6
+        },
+        {
+            "loudness": 42.062572995204064,
+            "startTime": 40.95,
+            "note": {
+                "frequency": 2637.02,
+                "name": "E7"
+            },
+            "endTime": 40.95
+        },
+        {
+            "loudness": 46.060627876583645,
+            "startTime": 41.05,
+            "note": {
+                "frequency": 2637.02,
+                "name": "E7"
+            },
+            "endTime": 41.05
+        },
+        {
+            "loudness": 63.94680211778915,
+            "startTime": 24.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 24.55
+        },
+        {
+            "loudness": 54.70166800590663,
+            "startTime": 32.95,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 33.05
+        },
+        {
+            "loudness": 53.31952574218606,
+            "startTime": 33.2,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 33.2
+        },
+        {
+            "loudness": 35.48752195193891,
+            "startTime": 33.4,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 33.45
+        },
+        {
+            "loudness": 53.80542521896733,
+            "startTime": 20.45,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 20.55
+        },
+        {
+            "loudness": 43.81086921502207,
+            "startTime": 20.65,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 20.75
+        },
+        {
+            "loudness": 52.58833178348855,
+            "startTime": 20.95,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 21.05
+        },
+        {
+            "loudness": 46.481268564194266,
+            "startTime": 21.2,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 21.2
+        },
+        {
+            "loudness": 48.22851284433972,
+            "startTime": 21.45,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 21.45
+        },
+        {
+            "loudness": 44.247890855747585,
+            "startTime": 23.9,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 23.95
+        },
+        {
+            "loudness": 53.17979299146485,
+            "startTime": 9.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 9.45
+        },
+        {
+            "loudness": 48.931093164738385,
+            "startTime": 29.45,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 29.6
+        },
+        {
+            "loudness": 57.26971787818196,
+            "startTime": 32.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 32.4
+        },
+        {
+            "loudness": 43.33011150692781,
+            "startTime": 39.85,
+            "note": {
+                "frequency": 2349.32,
+                "name": "D7"
+            },
+            "endTime": 40.0
+        },
+        {
+            "loudness": 50.010002219476114,
+            "startTime": 19.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 19.3
+        },
+        {
+            "loudness": 50.51960703417928,
+            "startTime": 19.4,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 19.4
+        },
+        {
+            "loudness": 47.545248659643484,
+            "startTime": 59.1,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 59.3
+        },
+        {
+            "loudness": 38.78418005984393,
+            "startTime": 59.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 59.45
+        },
+        {
+            "loudness": 52.51617796329714,
+            "startTime": 19.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 19.5
+        },
+        {
+            "loudness": 43.55931369904509,
+            "startTime": 46.1,
+            "note": {
+                "frequency": 2637.02,
+                "name": "E7"
+            },
+            "endTime": 46.15
+        },
+        {
+            "loudness": 52.99504845565595,
+            "startTime": 47.1,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 47.2
+        },
+        {
+            "loudness": 40.57714410185899,
+            "startTime": 47.3,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 47.3
+        },
+        {
+            "loudness": 54.31260811171197,
+            "startTime": 47.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 47.55
+        },
+        {
+            "loudness": 56.11013576342302,
+            "startTime": 38.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 38.5
+        },
+        {
+            "loudness": 40.744234710442285,
+            "startTime": 39.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 39.0
+        },
+        {
+            "loudness": 62.70345334287596,
+            "startTime": 6.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 7.0
+        },
+        {
+            "loudness": 87.80975424915918,
+            "startTime": 16.75,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 16.9
+        },
+        {
+            "loudness": 53.38304635880853,
+            "startTime": 3.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 3.45
+        },
+        {
+            "loudness": 54.82480490868223,
+            "startTime": 27.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 27.4
+        },
+        {
+            "loudness": 46.762367083901914,
+            "startTime": 27.6,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 27.6
+        },
+        {
+            "loudness": 42.1344536448738,
+            "startTime": 27.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 27.85
+        },
+        {
+            "loudness": 38.0980442528891,
+            "startTime": 28.05,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 28.1
+        },
+        {
+            "loudness": 44.05233542093231,
+            "startTime": 58.1,
+            "note": {
+                "frequency": 2637.02,
+                "name": "E7"
+            },
+            "endTime": 58.15
+        },
+        {
+            "loudness": 41.69002891185546,
+            "startTime": 27.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 27.1
+        },
+        {
+            "loudness": 52.72753724993212,
+            "startTime": 27.2,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 27.25
+        },
+        {
+            "loudness": 52.51426632574579,
+            "startTime": 31.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 31.5
+        },
+        {
+            "loudness": 47.4426994450365,
+            "startTime": 31.85,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 31.85
+        },
+        {
+            "loudness": 60.032502508599116,
+            "startTime": 35.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 35.25
+        },
+        {
+            "loudness": 42.734426302176225,
+            "startTime": 35.4,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 35.4
+        },
+        {
+            "loudness": 50.795874061209844,
+            "startTime": 46.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 46.55
+        },
+        {
+            "loudness": 46.8073880115014,
+            "startTime": 46.75,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 46.8
+        },
+        {
+            "loudness": 59.33556015187581,
+            "startTime": 29.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 29.6
+        },
+        {
+            "loudness": 40.80325110806243,
+            "startTime": 29.9,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 29.9
+        },
+        {
+            "loudness": 52.32625275420963,
+            "startTime": 10.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 11.0
+        },
+        {
+            "loudness": 61.372861862423335,
+            "startTime": 43.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 43.4
+        },
+        {
+            "loudness": 49.37512051505714,
+            "startTime": 50.7,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 50.8
+        },
+        {
+            "loudness": 44.19047767505676,
+            "startTime": 50.95,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 51.0
+        },
+        {
+            "loudness": 55.584498529055104,
+            "startTime": 26.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 26.6
+        },
+        {
+            "loudness": 59.32201356424323,
+            "startTime": 57.2,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 57.2
+        },
+        {
+            "loudness": 55.260741815192695,
+            "startTime": 57.4,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 57.4
+        },
+        {
+            "loudness": 52.3982740786598,
+            "startTime": 1.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 2.05
+        },
+        {
+            "loudness": 61.95481562999433,
+            "startTime": 56.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 56.5
+        },
+        {
+            "loudness": 44.30217366978344,
+            "startTime": 57.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 57.0
+        },
+        {
+            "loudness": 59.98632201225201,
+            "startTime": 10.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 10.65
+        },
+        {
+            "loudness": 58.70081978712738,
+            "startTime": 11.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 11.6
+        },
+        {
+            "loudness": 59.11360882229317,
+            "startTime": 8.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 8.7
+        },
+        {
+            "loudness": 58.340319886083044,
+            "startTime": 2.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 2.7
+        },
+        {
+            "loudness": 57.80634352250238,
+            "startTime": 53.45,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 53.65
+        },
+        {
+            "loudness": 44.13086256304057,
+            "startTime": 53.85,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 53.85
+        },
+        {
+            "loudness": 55.59272172781967,
+            "startTime": 32.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 32.6
+        },
+        {
+            "loudness": 45.76798573795293,
+            "startTime": 53.05,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 53.35
+        },
+        {
+            "loudness": 53.8892588930352,
+            "startTime": 49.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 49.5
+        },
+        {
+            "loudness": 48.33202830002074,
+            "startTime": 49.6,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 49.6
+        },
+        {
+            "loudness": 48.79859063685154,
+            "startTime": 16.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 16.2
+        },
+        {
+            "loudness": 44.21594083680673,
+            "startTime": 16.3,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 16.3
+        },
+        {
+            "loudness": 55.0947076341495,
+            "startTime": 37.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 37.5
+        },
+        {
+            "loudness": 50.44195053668405,
+            "startTime": 37.6,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 37.6
+        },
+        {
+            "loudness": 56.75192670481085,
+            "startTime": 43.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 43.45
+        },
+        {
+            "loudness": 63.00732179506705,
+            "startTime": 0.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 1.0
+        },
+        {
+            "loudness": 56.07306340673646,
+            "startTime": 15.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 15.4
+        },
+        {
+            "loudness": 46.720190557629834,
+            "startTime": 15.6,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 15.6
+        },
+        {
+            "loudness": 58.69585486152567,
+            "startTime": 34.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 34.65
+        },
+        {
+            "loudness": 59.7443272027231,
+            "startTime": 35.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 35.6
+        },
+        {
+            "loudness": 40.47488096434365,
+            "startTime": 35.9,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 35.9
+        },
+        {
+            "loudness": 45.16581487202412,
+            "startTime": 36.05,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 36.1
+        },
+        {
+            "loudness": 56.2405786880065,
+            "startTime": 33.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 33.45
+        },
+        {
+            "loudness": 44.89037254617113,
+            "startTime": 33.6,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 33.6
+        },
+        {
+            "loudness": 46.653744897571904,
+            "startTime": 47.2,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 47.35
+        },
+        {
+            "loudness": 60.50546386588385,
+            "startTime": 7.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 7.7
+        },
+        {
+            "loudness": 58.33651392612157,
+            "startTime": 11.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 12.25
+        },
+        {
+            "loudness": 60.29830344241179,
+            "startTime": 14.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 14.7
+        },
+        {
+            "loudness": 61.86910234797537,
+            "startTime": 15.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 15.6
+        },
+        {
+            "loudness": 56.59774736387243,
+            "startTime": 5.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 5.3
+        },
+        {
+            "loudness": 50.71231052815332,
+            "startTime": 58.15,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 58.55
+        },
+        {
+            "loudness": 45.393313558542935,
+            "startTime": 58.75,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 58.75
+        },
+        {
+            "loudness": 48.753754171351574,
+            "startTime": 53.6,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 53.7
+        },
+        {
+            "loudness": 48.06368845012678,
+            "startTime": 53.8,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 53.95
+        },
+        {
+            "loudness": 51.90005043757815,
+            "startTime": 16.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 16.35
+        },
+        {
+            "loudness": 40.56973054767813,
+            "startTime": 16.5,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 16.55
+        },
+        {
+            "loudness": 58.59963614095698,
+            "startTime": 20.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 20.6
+        },
+        {
+            "loudness": 61.929429127565705,
+            "startTime": 17.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 17.55
+        },
+        {
+            "loudness": 61.953146152962766,
+            "startTime": 9.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 9.6
+        },
+        {
+            "loudness": 62.34907498126675,
+            "startTime": 3.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 3.6
+        },
+        {
+            "loudness": 55.831022372115655,
+            "startTime": 21.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 21.45
+        },
+        {
+            "loudness": 45.84280487015399,
+            "startTime": 21.6,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 21.6
+        },
+        {
+            "loudness": 56.16110523656791,
+            "startTime": 26.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 26.45
+        },
+        {
+            "loudness": 53.29719263052435,
+            "startTime": 28.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 28.4
+        },
+        {
+            "loudness": 52.573337969272856,
+            "startTime": 44.65,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 44.85
+        },
+        {
+            "loudness": 44.37875322007276,
+            "startTime": 44.95,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 45.1
+        },
+        {
+            "loudness": 61.07386457402206,
+            "startTime": 58.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 58.1
+        },
+        {
+            "loudness": 56.797780269025196,
+            "startTime": 17.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 17.35
+        },
+        {
+            "loudness": 59.009443313227294,
+            "startTime": 36.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 36.8
+        },
+        {
+            "loudness": 40.631424148406865,
+            "startTime": 36.9,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 36.9
+        },
+        {
+            "loudness": 61.13157745182792,
+            "startTime": 33.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 33.65
+        },
+        {
+            "loudness": 52.7801184193271,
+            "startTime": 34.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 34.4
+        },
+        {
+            "loudness": 37.79312354205766,
+            "startTime": 34.5,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 34.55
+        },
+        {
+            "loudness": 54.78106703910872,
+            "startTime": 7.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 8.05
+        },
+        {
+            "loudness": 62.32932568801319,
+            "startTime": 23.4,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 23.4
+        },
+        {
+            "loudness": 39.367414520084196,
+            "startTime": 23.55,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 23.6
+        },
+        {
+            "loudness": 58.9171111282172,
+            "startTime": 20.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 20.75
+        },
+        {
+            "loudness": 45.253576225051255,
+            "startTime": 20.95,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 20.95
+        },
+        {
+            "loudness": 63.6277342822953,
+            "startTime": 21.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 21.6
+        },
+        {
+            "loudness": 61.55399776174968,
+            "startTime": 16.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 16.65
+        },
+        {
+            "loudness": 55.07188682866306,
+            "startTime": 55.85,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 55.95
+        },
+        {
+            "loudness": 58.449900448159056,
+            "startTime": 38.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 38.6
+        },
+        {
+            "loudness": 58.64248191329066,
+            "startTime": 32.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 32.75
+        },
+        {
+            "loudness": 43.253047481903714,
+            "startTime": 32.95,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 32.95
+        },
+        {
+            "loudness": 58.70382019349846,
+            "startTime": 29.9,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 30.25
+        },
+        {
+            "loudness": 49.24623958204259,
+            "startTime": 59.2,
+            "note": {
+                "frequency": 2793.83,
+                "name": "F7"
+            },
+            "endTime": 59.3
+        },
+        {
+            "loudness": 63.65189822434716,
+            "startTime": 9.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 9.9
+        },
+        {
+            "loudness": 62.05706871085106,
+            "startTime": 52.25,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 52.3
+        },
+        {
+            "loudness": 58.651496694418434,
+            "startTime": 26.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 26.75
+        },
+        {
+            "loudness": 43.79722352756458,
+            "startTime": 26.95,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 26.95
+        },
+        {
+            "loudness": 63.98412157803389,
+            "startTime": 3.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 3.9
+        },
+        {
+            "loudness": 45.448958106385696,
+            "startTime": 56.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 56.3
+        },
+        {
+            "loudness": 59.528989274789545,
+            "startTime": 27.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 27.6
+        },
+        {
+            "loudness": 63.8156021888254,
+            "startTime": 31.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 31.65
+        },
+        {
+            "loudness": 58.58696392360382,
+            "startTime": 43.85,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 43.95
+        },
+        {
+            "loudness": 63.67375822717847,
+            "startTime": 51.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 51.65
+        },
+        {
+            "loudness": 64.45364193665117,
+            "startTime": 30.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 30.55
+        },
+        {
+            "loudness": 67.56632580270565,
+            "startTime": 59.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 59.25
+        },
+        {
+            "loudness": 46.42619939790782,
+            "startTime": 32.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 32.5
+        },
+        {
+            "loudness": 55.777959259222634,
+            "startTime": 32.75,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 33.2
+        },
+        {
+            "loudness": 58.49871021424865,
+            "startTime": 33.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 33.75
+        },
+        {
+            "loudness": 53.66617089475959,
+            "startTime": 33.85,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 34.15
+        },
+        {
+            "loudness": 57.911690875928976,
+            "startTime": 55.35,
+            "note": {
+                "frequency": 392.0,
+                "name": "G4"
+            },
+            "endTime": 55.55
+        },
+        {
+            "loudness": 66.86636523405834,
+            "startTime": 46.85,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 46.95
+        },
+        {
+            "loudness": 59.624676253006314,
+            "startTime": 23.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 23.6
+        },
+        {
+            "loudness": 43.47568966126381,
+            "startTime": 23.85,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 23.9
+        },
+        {
+            "loudness": 55.99596183109769,
+            "startTime": 3.45,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 3.8
+        },
+        {
+            "loudness": 50.38573754620275,
+            "startTime": 31.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 31.45
+        },
+        {
+            "loudness": 58.196756312420284,
+            "startTime": 44.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 44.65
+        },
+        {
+            "loudness": 43.34452560366311,
+            "startTime": 44.95,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 45.05
+        },
+        {
+            "loudness": 42.81814098861126,
+            "startTime": 53.0,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 53.0
+        },
+        {
+            "loudness": 57.09071658748631,
+            "startTime": 53.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 53.9
+        },
+        {
+            "loudness": 48.85642096419191,
+            "startTime": 54.1,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 54.1
+        },
+        {
+            "loudness": 55.54014435791331,
+            "startTime": 25.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 26.1
+        },
+        {
+            "loudness": 55.186243132947645,
+            "startTime": 36.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 36.15
+        },
+        {
+            "loudness": 60.6390689790392,
+            "startTime": 36.3,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 36.3
+        },
+        {
+            "loudness": 59.91167475658933,
+            "startTime": 29.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 29.25
+        },
+        {
+            "loudness": 54.76741453370697,
+            "startTime": 2.8,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 3.15
+        },
+        {
+            "loudness": 50.66792955090591,
+            "startTime": 13.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 13.5
+        },
+        {
+            "loudness": 57.305336744565636,
+            "startTime": 20.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 20.4
+        },
+        {
+            "loudness": 50.670452339706785,
+            "startTime": 13.2,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 13.3
+        },
+        {
+            "loudness": 43.862914521055245,
+            "startTime": 20.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 20.5
+        },
+        {
+            "loudness": 58.72371754416379,
+            "startTime": 20.75,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 21.15
+        },
+        {
+            "loudness": 88.39330126616225,
+            "startTime": 40.75,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 40.9
+        },
+        {
+            "loudness": 60.147721973322135,
+            "startTime": 41.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 42.3
+        },
+        {
+            "loudness": 62.077645330572096,
+            "startTime": 44.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 44.55
+        },
+        {
+            "loudness": 90.69668026223722,
+            "startTime": 52.75,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 52.9
+        },
+        {
+            "loudness": 58.340756241028366,
+            "startTime": 14.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 14.4
+        },
+        {
+            "loudness": 55.72184922128104,
+            "startTime": 13.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 14.1
+        },
+        {
+            "loudness": 66.98615074919948,
+            "startTime": 58.85,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 58.95
+        },
+        {
+            "loudness": 59.30207285220166,
+            "startTime": 23.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 23.25
+        },
+        {
+            "loudness": 59.41949465328873,
+            "startTime": 45.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 45.65
+        },
+        {
+            "loudness": 68.42029486686681,
+            "startTime": 52.85,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 52.95
+        },
+        {
+            "loudness": 60.93349607132775,
+            "startTime": 50.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 50.75
+        },
+        {
+            "loudness": 44.11438266214643,
+            "startTime": 50.95,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 50.95
+        },
+        {
+            "loudness": 57.12298621305732,
+            "startTime": 16.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 17.0
+        },
+        {
+            "loudness": 68.0121795560565,
+            "startTime": 46.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 46.65
+        },
+        {
+            "loudness": 58.86795238396415,
+            "startTime": 47.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 47.8
+        },
+        {
+            "loudness": 47.75355836123544,
+            "startTime": 17.45,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 17.5
+        },
+        {
+            "loudness": 51.62486192896733,
+            "startTime": 41.05,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 41.3
+        },
+        {
+            "loudness": 56.5855063050459,
+            "startTime": 8.8,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 9.1
+        },
+        {
+            "loudness": 57.08245810359999,
+            "startTime": 9.45,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 9.75
+        },
+        {
+            "loudness": 55.152307817930954,
+            "startTime": 9.85,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 10.25
+        },
+        {
+            "loudness": 64.0987422406139,
+            "startTime": 38.75,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 39.15
+        },
+        {
+            "loudness": 63.90458295161579,
+            "startTime": 40.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 40.7
+        },
+        {
+            "loudness": 40.8815752895503,
+            "startTime": 40.85,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 40.85
+        },
+        {
+            "loudness": 48.62837758529386,
+            "startTime": 40.95,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 41.0
+        },
+        {
+            "loudness": 60.16605925761376,
+            "startTime": 41.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 41.7
+        },
+        {
+            "loudness": 53.03325911264343,
+            "startTime": 47.3,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 47.95
+        },
+        {
+            "loudness": 49.52070779521002,
+            "startTime": 48.05,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 48.05
+        },
+        {
+            "loudness": 67.20957529667884,
+            "startTime": 0.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 0.55
+        },
+        {
+            "loudness": 62.79832711672667,
+            "startTime": 56.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 56.75
+        },
+        {
+            "loudness": 42.86594134181747,
+            "startTime": 56.95,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 56.95
+        },
+        {
+            "loudness": 65.19981412188528,
+            "startTime": 49.85,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 50.1
+        },
+        {
+            "loudness": 62.4604070015849,
+            "startTime": 19.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 19.65
+        },
+        {
+            "loudness": 63.267177665926496,
+            "startTime": 25.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 25.65
+        },
+        {
+            "loudness": 55.02856199163031,
+            "startTime": 54.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 54.45
+        },
+        {
+            "loudness": 64.92936696495323,
+            "startTime": 50.55,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 50.55
+        },
+        {
+            "loudness": 50.066941217435534,
+            "startTime": 41.6,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 41.95
+        },
+        {
+            "loudness": 47.467022819000626,
+            "startTime": 42.05,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 42.35
+        },
+        {
+            "loudness": 46.25271399486094,
+            "startTime": 42.45,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 42.5
+        },
+        {
+            "loudness": 57.699783769635104,
+            "startTime": 26.8,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 27.2
+        },
+        {
+            "loudness": 58.03588865013475,
+            "startTime": 27.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 27.75
+        },
+        {
+            "loudness": 55.209128852224964,
+            "startTime": 27.85,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 28.3
+        },
+        {
+            "loudness": 48.53925570757319,
+            "startTime": 28.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 28.5
+        },
+        {
+            "loudness": 59.1888749163751,
+            "startTime": 28.6,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 29.0
+        },
+        {
+            "loudness": 40.67006510527758,
+            "startTime": 29.1,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 29.25
+        },
+        {
+            "loudness": 63.373989333289124,
+            "startTime": 30.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 31.0
+        },
+        {
+            "loudness": 57.86266383962179,
+            "startTime": 21.45,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 21.75
+        },
+        {
+            "loudness": 55.06961062285109,
+            "startTime": 21.85,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 22.3
+        },
+        {
+            "loudness": 61.16863927213363,
+            "startTime": 22.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 22.95
+        },
+        {
+            "loudness": 40.79064831980905,
+            "startTime": 23.15,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 23.15
+        },
+        {
+            "loudness": 55.44590084048245,
+            "startTime": 14.8,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 15.15
+        },
+        {
+            "loudness": 58.11936055072149,
+            "startTime": 15.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 15.75
+        },
+        {
+            "loudness": 54.627976017945315,
+            "startTime": 15.85,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 16.3
+        },
+        {
+            "loudness": 45.96214667525999,
+            "startTime": 44.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 44.3
+        },
+        {
+            "loudness": 79.3857926729494,
+            "startTime": 22.75,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 23.0
+        },
+        {
+            "loudness": 41.53945376473062,
+            "startTime": 23.3,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 23.3
+        },
+        {
+            "loudness": 46.2847684557044,
+            "startTime": 23.4,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 23.55
+        },
+        {
+            "loudness": 55.091099249091435,
+            "startTime": 11.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 12.3
+        },
+        {
+            "loudness": 63.34450351333829,
+            "startTime": 18.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 19.0
+        },
+        {
+            "loudness": 64.87348224343845,
+            "startTime": 37.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 37.85
+        },
+        {
+            "loudness": 40.98966399471007,
+            "startTime": 38.1,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 38.1
+        },
+        {
+            "loudness": 40.692717525894146,
+            "startTime": 38.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 38.2
+        },
+        {
+            "loudness": 61.15096698275604,
+            "startTime": 38.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 38.7
+        },
+        {
+            "loudness": 47.940587809322984,
+            "startTime": 38.95,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 39.0
+        },
+        {
+            "loudness": 62.381776890284435,
+            "startTime": 43.25,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 43.3
+        },
+        {
+            "loudness": 59.94886331473596,
+            "startTime": 17.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 18.0
+        },
+        {
+            "loudness": 59.425103382159804,
+            "startTime": 33.9,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 34.3
+        },
+        {
+            "loudness": 57.07046417316216,
+            "startTime": 34.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 35.0
+        },
+        {
+            "loudness": 56.20058239471025,
+            "startTime": 5.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 6.0
+        },
+        {
+            "loudness": 52.308879426020496,
+            "startTime": 6.1,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 6.4
+        },
+        {
+            "loudness": 71.41643520242768,
+            "startTime": 54.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 55.0
+        },
+        {
+            "loudness": 63.071637207868946,
+            "startTime": 33.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 33.9
+        },
+        {
+            "loudness": 59.279346864978564,
+            "startTime": 31.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 32.1
+        },
+        {
+            "loudness": 69.73810615007125,
+            "startTime": 37.85,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 38.05
+        },
+        {
+            "loudness": 59.42032460475137,
+            "startTime": 4.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 4.6
+        },
+        {
+            "loudness": 62.890347549451555,
+            "startTime": 15.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 15.9
+        },
+        {
+            "loudness": 53.962073594071605,
+            "startTime": 50.1,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 50.7
+        },
+        {
+            "loudness": 59.8014709696667,
+            "startTime": 35.9,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 36.3
+        },
+        {
+            "loudness": 51.39196994967189,
+            "startTime": 36.5,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 36.55
+        },
+        {
+            "loudness": 72.65941503087966,
+            "startTime": 58.75,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 58.95
+        },
+        {
+            "loudness": 63.346376583050635,
+            "startTime": 13.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 13.65
+        },
+        {
+            "loudness": 60.48549389451912,
+            "startTime": 17.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 18.2
+        },
+        {
+            "loudness": 46.04656048481788,
+            "startTime": 18.3,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 18.3
+        },
+        {
+            "loudness": 72.33066655759765,
+            "startTime": 42.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 43.0
+        },
+        {
+            "loudness": 64.80912873445823,
+            "startTime": 36.7,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 36.9
+        },
+        {
+            "loudness": 64.25270565764562,
+            "startTime": 18.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 18.55
+        },
+        {
+            "loudness": 65.38199049799324,
+            "startTime": 46.2,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 46.3
+        },
+        {
+            "loudness": 57.49765664630603,
+            "startTime": 46.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 46.55
+        },
+        {
+            "loudness": 57.20851064750624,
+            "startTime": 0.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 0.85
+        },
+        {
+            "loudness": 54.335423982289754,
+            "startTime": 0.95,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 1.35
+        },
+        {
+            "loudness": 59.47517753347841,
+            "startTime": 3.9,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 4.25
+        },
+        {
+            "loudness": 75.07261755241423,
+            "startTime": 46.75,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 46.9
+        },
+        {
+            "loudness": 66.26099756591299,
+            "startTime": 48.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 49.0
+        },
+        {
+            "loudness": 66.85650689619924,
+            "startTime": 39.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 39.3
+        },
+        {
+            "loudness": 77.06247596980201,
+            "startTime": 57.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 57.9
+        },
+        {
+            "loudness": 65.53303309352789,
+            "startTime": 39.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 39.9
+        },
+        {
+            "loudness": 56.31651804612989,
+            "startTime": 6.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 6.85
+        },
+        {
+            "loudness": 57.536082033524714,
+            "startTime": 7.0,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 7.35
+        },
+        {
+            "loudness": 55.18321140212845,
+            "startTime": 12.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 13.4
+        },
+        {
+            "loudness": 63.65167720125636,
+            "startTime": 1.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 1.65
+        },
+        {
+            "loudness": 61.138783879050386,
+            "startTime": 57.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 57.6
+        },
+        {
+            "loudness": 50.45943199450203,
+            "startTime": 57.85,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 57.85
+        },
+        {
+            "loudness": 55.42755441769965,
+            "startTime": 41.45,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 41.7
+        },
+        {
+            "loudness": 66.52312830687148,
+            "startTime": 12.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 12.55
+        },
+        {
+            "loudness": 58.50298528284601,
+            "startTime": 7.85,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 8.05
+        },
+        {
+            "loudness": 61.941028816442234,
+            "startTime": 52.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 52.7
+        },
+        {
+            "loudness": 55.85871284390718,
+            "startTime": 53.45,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 53.7
+        },
+        {
+            "loudness": 58.72430902519652,
+            "startTime": 1.85,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 2.05
+        },
+        {
+            "loudness": 55.922539843481445,
+            "startTime": 19.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 20.1
+        },
+        {
+            "loudness": 88.73647780328598,
+            "startTime": 13.9,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 14.0
+        },
+        {
+            "loudness": 56.04533218012834,
+            "startTime": 30.05,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 30.35
+        },
+        {
+            "loudness": 60.86554535755078,
+            "startTime": 53.9,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 54.5
+        },
+        {
+            "loudness": 66.54237225842036,
+            "startTime": 45.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 45.95
+        },
+        {
+            "loudness": 43.19208822020339,
+            "startTime": 46.05,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 46.1
+        },
+        {
+            "loudness": 41.09286377112318,
+            "startTime": 46.2,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 46.25
+        },
+        {
+            "loudness": 65.99728345040148,
+            "startTime": 36.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 36.95
+        },
+        {
+            "loudness": 65.56996501332323,
+            "startTime": 52.05,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 52.15
+        },
+        {
+            "loudness": 75.49044353742312,
+            "startTime": 57.45,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 57.75
+        },
+        {
+            "loudness": 59.634604142642054,
+            "startTime": 23.7,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 24.3
+        },
+        {
+            "loudness": 57.78091796982324,
+            "startTime": 24.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 25.45
+        },
+        {
+            "loudness": 59.37180660983896,
+            "startTime": 18.1,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 18.35
+        },
+        {
+            "loudness": 57.602558377942856,
+            "startTime": 18.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 19.45
+        },
+        {
+            "loudness": 68.23746874052392,
+            "startTime": 52.1,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 52.1
+        },
+        {
+            "loudness": 80.76276267816641,
+            "startTime": 34.75,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 35.0
+        },
+        {
+            "loudness": 44.19716820360856,
+            "startTime": 35.2,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 35.65
+        },
+        {
+            "loudness": 46.14404215131488,
+            "startTime": 40.45,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 40.6
+        },
+        {
+            "loudness": 62.045876407346825,
+            "startTime": 47.9,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 48.35
+        },
+        {
+            "loudness": 41.29525320050361,
+            "startTime": 48.5,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 48.5
+        },
+        {
+            "loudness": 66.1037690667746,
+            "startTime": 50.8,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 51.1
+        },
+        {
+            "loudness": 66.63379451652193,
+            "startTime": 6.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 6.55
+        },
+        {
+            "loudness": 60.55852430673079,
+            "startTime": 48.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 48.65
+        },
+        {
+            "loudness": 52.54249249867811,
+            "startTime": 48.75,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 48.75
+        },
+        {
+            "loudness": 69.01040938266009,
+            "startTime": 58.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 58.7
+        },
+        {
+            "loudness": 41.626244353747396,
+            "startTime": 58.8,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 58.8
+        },
+        {
+            "loudness": 49.27089428339351,
+            "startTime": 59.1,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 59.1
+        },
+        {
+            "loudness": 68.78703270864543,
+            "startTime": 59.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 59.45
+        },
+        {
+            "loudness": 60.77921249317383,
+            "startTime": 49.7,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 50.35
+        },
+        {
+            "loudness": 92.13794578464602,
+            "startTime": 19.9,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 20.0
+        },
+        {
+            "loudness": 58.557358957699144,
+            "startTime": 55.2,
+            "note": {
+                "frequency": 739.99,
+                "name": "F#5/Gb5"
+            },
+            "endTime": 55.5
+        },
+        {
+            "loudness": 58.56854310715136,
+            "startTime": 22.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 22.7
+        },
+        {
+            "loudness": 62.697756166477845,
+            "startTime": 44.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 44.7
+        },
+        {
+            "loudness": 41.31878320817693,
+            "startTime": 44.95,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 45.0
+        },
+        {
+            "loudness": 70.95637913404528,
+            "startTime": 45.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 45.65
+        },
+        {
+            "loudness": 100.0,
+            "startTime": 28.75,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 28.9
+        },
+        {
+            "loudness": 58.96825572076949,
+            "startTime": 28.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 28.7
+        },
+        {
+            "loudness": 62.610671912243795,
+            "startTime": 4.75,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 4.9
+        },
+        {
+            "loudness": 63.93199108913714,
+            "startTime": 43.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 43.8
+        },
+        {
+            "loudness": 77.8076955885286,
+            "startTime": 36.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 36.6
+        },
+        {
+            "loudness": 59.91987586584433,
+            "startTime": 30.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 31.3
+        },
+        {
+            "loudness": 60.008755887138854,
+            "startTime": 49.05,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 49.55
+        },
+        {
+            "loudness": 65.07359980971049,
+            "startTime": 43.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 44.2
+        },
+        {
+            "loudness": 40.09941472993188,
+            "startTime": 44.3,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 44.4
+        },
+        {
+            "loudness": 60.57842080828399,
+            "startTime": 37.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 38.5
+        },
+        {
+            "loudness": 60.63900613150053,
+            "startTime": 35.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 36.35
+        },
+        {
+            "loudness": 71.70274997800742,
+            "startTime": 24.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 24.85
+        },
+        {
+            "loudness": 61.20064810098273,
+            "startTime": 44.85,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 45.2
+        },
+        {
+            "loudness": 61.31498528095025,
+            "startTime": 49.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 49.85
+        },
+        {
+            "loudness": 69.70280670023935,
+            "startTime": 41.1,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 41.25
+        },
+        {
+            "loudness": 62.0933029187342,
+            "startTime": 41.4,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 41.5
+        },
+        {
+            "loudness": 61.42867103097436,
+            "startTime": 55.45,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 55.9
+        },
+        {
+            "loudness": 68.24628988980487,
+            "startTime": 43.05,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 43.15
+        },
+        {
+            "loudness": 67.02372405226818,
+            "startTime": 47.0,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 47.3
+        },
+        {
+            "loudness": 42.01280098750124,
+            "startTime": 52.4,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 52.4
+        },
+        {
+            "loudness": 67.5833974140963,
+            "startTime": 52.5,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 52.75
+        },
+        {
+            "loudness": 62.84358981103966,
+            "startTime": 57.9,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 58.35
+        },
+        {
+            "loudness": 63.68243812267853,
+            "startTime": 58.45,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 58.75
+        },
+        {
+            "loudness": 62.04096972108625,
+            "startTime": 23.9,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 24.25
+        },
+        {
+            "loudness": 62.11206590786957,
+            "startTime": 37.0,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 37.5
+        },
+        {
+            "loudness": 62.119672330608424,
+            "startTime": 29.7,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 30.4
+        },
+        {
+            "loudness": 62.27466195741093,
+            "startTime": 41.75,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 42.45
+        },
+        {
+            "loudness": 62.448841789633846,
+            "startTime": 56.85,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 57.2
+        },
+        {
+            "loudness": 62.50172847814584,
+            "startTime": 53.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 54.05
+        },
+        {
+            "loudness": 73.27359118226163,
+            "startTime": 12.75,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 12.85
+        },
+        {
+            "loudness": 76.56875504072232,
+            "startTime": 46.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 46.75
+        },
+        {
+            "loudness": 63.1204030985477,
+            "startTime": 42.3,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 42.75
+        },
+        {
+            "loudness": 63.5641666285898,
+            "startTime": 51.0,
+            "note": {
+                "frequency": 587.33,
+                "name": "D5"
+            },
+            "endTime": 51.4
+        },
+        {
+            "loudness": 63.995113354171075,
+            "startTime": 12.75,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 13.0
+        },
+        {
+            "loudness": 64.5379631725075,
+            "startTime": 21.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 21.9
+        },
+        {
+            "loudness": 66.3077578191585,
+            "startTime": 39.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 39.65
+        },
+        {
+            "loudness": 76.98715959612605,
+            "startTime": 31.85,
+            "note": {
+                "frequency": 987.77,
+                "name": "B5"
+            },
+            "endTime": 31.95
+        },
+        {
+            "loudness": 66.93776442098721,
+            "startTime": 48.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 48.9
+        },
+        {
+            "loudness": 66.99182263976792,
+            "startTime": 47.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 48.35
+        },
+        {
+            "loudness": 67.08752102122584,
+            "startTime": 25.9,
+            "note": {
+                "frequency": 493.88,
+                "name": "B4"
+            },
+            "endTime": 26.35
+        },
+        {
+            "loudness": 67.40116697849359,
+            "startTime": 55.65,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 56.1
+        },
+        {
+            "loudness": 80.26486220396087,
+            "startTime": 54.15,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 54.25
+        },
+        {
+            "loudness": 67.66052810186082,
+            "startTime": 51.65,
+            "note": {
+                "frequency": 880.0,
+                "name": "A5"
+            },
+            "endTime": 51.95
+        },
+        {
+            "loudness": 68.86967694833844,
+            "startTime": 57.2,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 57.75
+        },
+        {
+            "loudness": 69.04625639314615,
+            "startTime": 40.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 40.95
+        },
+        {
+            "loudness": 69.21402059931971,
+            "startTime": 54.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 55.4
+        },
+        {
+            "loudness": 69.51804012530052,
+            "startTime": 39.45,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 40.25
+        },
+        {
+            "loudness": 69.88183194265038,
+            "startTime": 54.35,
+            "note": {
+                "frequency": 783.99,
+                "name": "G5"
+            },
+            "endTime": 54.7
+        },
+        {
+            "loudness": 70.10342900778821,
+            "startTime": 45.35,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 46.1
+        },
+        {
+            "loudness": 72.14792234797225,
+            "startTime": 52.95,
+            "note": {
+                "frequency": 440.0,
+                "name": "A4"
+            },
+            "endTime": 53.2
+        },
+        {
+            "loudness": 72.29925998432071,
+            "startTime": 51.45,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 51.95
+        },
+        {
+            "loudness": 73.6474646945871,
+            "startTime": 42.55,
+            "note": {
+                "frequency": 659.25,
+                "name": "E5"
+            },
+            "endTime": 42.9
+        }
+    ]
+}

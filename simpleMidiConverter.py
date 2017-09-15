@@ -18,9 +18,7 @@ class SimpleMidiConverter:
 		self.noteProcessor = noteProcessor or NoteProcessor
 		self.noteProcessorArgs = kwargs
 
-
-
-	def run(self):
+	def getNotes(self):
 		print("Reading file...")
 		t = time.clock()
 		self.waveforms, self.sampleRate, _ = self.fileReader.getRawData(self.fileName)
@@ -32,4 +30,8 @@ class SimpleMidiConverter:
 		t = time.clock()
 		notes = self.noteProcessor.run()
 		print("%f s" % (time.clock() - t))
+		return notes
+
+	def run(self):
+		notes = self.getNotes()
 		self.midiWriter.writeActiveNotesToFile(notes, self.fileName[:self.fileName.index(".")])

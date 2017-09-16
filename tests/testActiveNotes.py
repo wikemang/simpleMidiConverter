@@ -6,7 +6,7 @@ from simpleMidiConverter import SimpleMidiConverter
 from noteProcessors.noteProcessor.noteProcessor import NoteProcessor
 from noteProcessors.noteProcessor.baseShapeStrategy import BaseShapeStrategy
 from noteProcessors.noteProcessor.shapeStrategies import FilterShapeStrategy
-from utils import *
+import utils
 
 # This is a sort of fuzzy regression test. 
 # Gets all active notes from a Notes Processor and matches it with the old output from the same NoteProcessor.
@@ -28,7 +28,7 @@ TIME_THRESHOLD = 0.1 	# Time in seconds notes must check out to.
 # Checks if a note can be found in the oldNotes list.
 def doesExistNote(note, oldNotes):
 	if note.loudness > LOUDNESS_THRESHOLD:
-		index = binSearch(oldNotes, lambda n: n['startTime'], note.startTime, fuzzy=True)
+		index = utils.binSearch(oldNotes, lambda n: n['startTime'], note.startTime, fuzzy=True)
 		# Search higher indices for similar startTimes
 		searchIndex = index
 		while abs(oldNotes[searchIndex]['startTime'] - note.startTime) < TIME_THRESHOLD:

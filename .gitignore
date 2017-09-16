@@ -2,6 +2,7 @@
 out/*
 !out/.gitkeep
 tests/newTestResources/
+!tests/newTestResources/.gitkeep
 
 
 # Byte-compiled / optimized / DLL files

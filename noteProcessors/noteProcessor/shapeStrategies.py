@@ -2,7 +2,7 @@ from collections import defaultdict
 import copy
 
 from noteProcessors.noteProcessor.baseShapeStrategy import BaseShapeStrategy, FrequencyTimeShape
-from utils import *
+import utils
 
 # The goal of this shape strategy is to filter down the huge set of shapes to only those which contributes to the main melody.
 # To accomplish this, several heuristics are used and the main steps are as follows:
@@ -39,7 +39,7 @@ class FilterShapeStrategy(BaseShapeStrategy):
 								# Maybe we can make check more precise in frequency precision cases
 								# It seems this value is critical so that if too low, harmonic frequencies dont get grouped
 								# If too high, false harmonics are detected
-								if percentDiff(cachedShape.centerOfMass / currentHarmonic, baseFrequencyIndex) < 0.015:
+								if utils.percentDiff(cachedShape.centerOfMass / currentHarmonic, baseFrequencyIndex) < 0.015:
 									# Get the time indices that are shared between the base and harmonic shapes.
 									sharedStartIndex = max([shape.timeIndexStart, cachedShape.timeIndexStart])
 									sharedEndIndex = min([shape.timeIndexEnd, cachedShape.timeIndexEnd])
@@ -51,7 +51,7 @@ class FilterShapeStrategy(BaseShapeStrategy):
 										continue
 
 									# Re-evaluate the base-candidacy of the harmonic shape
-									cachedShape.updateBaseCandidate(sharedStartIndex, sharedEndIndex)
+									cachedShape.updateBaseCandidate(sharedStartIndex, sharedEndIndex, shape)
 									shape.harmonicCount += 1
 
 									# Combine the magnitudes by time
@@ -63,7 +63,11 @@ class FilterShapeStrategy(BaseShapeStrategy):
 					currentHarmonic += 1
 					currentIndex = int(baseFrequencyIndex * currentHarmonic)
 
+		shapeList = self.filterHarmonicsRules(shapeList, d2Array)
 		shapeList = self.consolidateShapeList(shapeList, d2Array)
+		return shapeList
+
+	def filterHarmonicsRules(self, shapeList, d2Array):
 		return shapeList
 
 	# Filters the shapelist multiple times based on rules
@@ -102,60 +106,6 @@ class FilterShapeStrategy(BaseShapeStrategy):
 		print("Filtering Notes: %d " % len(shapeList))
 
 
-		# Combine existing shapes that are consecutive in time, and share similar frequencies.
-		shapeList.sort(key=lambda shape: shape.timeIndexStart)
-		newShapeList = []
-		for shape in shapeList:
-			# Check if a point is in cache. If not, it was removed by earlier iteration of this so we do not add to newShapeList
-			# Should be correct since this processes shapes top down
-			if shape in self.usedPointsCache[shape.points[0][0]][shape.points[0][1]]:
-				lookForConnection = True	# Set to true if a connecting shape is found, indicating that there could be more connecting shapes.
-				while lookForConnection:
-					possibleConnectingShapes = set([])
-					cachePoints = set([])	# Caches containing possibleConnectingShapes
-					lookForConnection = False
-					# We will check each cache point below the ending points (including diagonals).
-					for p in shape.getEndingPoints():
-						if p[0] < len(d2Array) - 1:
-							if p[1] > 1:
-								cachePoints.add((p[0] + 1, p[1] - 1))
-							cachePoints.add((p[0] + 1, p[1]))
-							if p[1] < len(d2Array[0]) - 1:
-								cachePoints.add((p[0] + 1, p[1] + 1))
-					for cachePoint in cachePoints:
-						possibleConnectingShapes.update(self.usedPointsCache[cachePoint[0]][cachePoint[1]])
-					for connectingShape in possibleConnectingShapes:
-						# Checks that the 2 shapes are consecutive in time, have similar centerOfMass, and 
-						# the connecting magnitudeByTimes are similar
-						if (shape.timeIndexEnd + 1 == connectingShape.timeIndexStart and
-							percentDiff(connectingShape.centerOfMass, shape.centerOfMass) < 0.01 and
-							percentDiff(shape.magnitudeByTime[-1], connectingShape.magnitudeByTime[0] < 0.5)):
-						
-							# Combine the 2 shapes into 1 shape by emptying connectingShape and unloading to shape
-							points = copy.deepcopy(connectingShape.points)
-							points.extend(shape.points)
-							auxiliaryPoints = copy.deepcopy(connectingShape.auxiliaryPoints)
-							auxiliaryPoints.extend(shape.auxiliaryPoints)
-
-							timeIndices = [p[0] for p in points]
-							start = min(timeIndices)
-							end = max(timeIndices)
-							# We transfer magnitudes to the new shape to preserve combined harmonics
-							magnitudeToTransfer = shape.magnitudeByTime[start - shape.timeIndexStart :]
-							magnitudeToTransfer.extend(connectingShape.magnitudeByTime[: end - connectingShape.timeIndexStart + 1])
-							if sum(magnitudeToTransfer) < 0:
-								magnitudeToTransfer = [0 for m in magnitudeToTransfer]
-							shape = FrequencyTimeShape(points, auxiliaryPoints, d2Array, magnitudeToTransfer)
-							# Remove the connecting shape from cache
-							for cp in connectingShape.points:
-								self.usedPointsCache[cp[0]][cp[1]].remove(connectingShape)
-								self.usedPointsCache[cp[0]][cp[1]].append(shape)
-							lookForConnection = True
-							break
-				newShapeList.append(shape)
-		shapeList = newShapeList
-		print("Filtering Notes: %d " % len(shapeList))
-
 		shapeList.sort(key=lambda shape: shape.magnitude)
 		# Evaluate each shape internally and remove all uneeded points
 		self.usedPointsCache = [[[] for i in range(len(d2Array[0]))] for i in range(len(d2Array))]
@@ -171,12 +121,12 @@ class FilterShapeStrategy(BaseShapeStrategy):
 					if (i == len(shape.magnitudeByTime) - 1 and
 						len(shape.magnitudeByTime) != 1 and
 						shape.magnitudeByTime[i - 1] >= mediumRange and 
-						percentDiff(shape.magnitudeByTime[i - 1], shape.magnitudeByTime[i]) > 0.2):
+						utils.percentDiff(shape.magnitudeByTime[i - 1], shape.magnitudeByTime[i]) > 0.2):
 						isPoint = True
 					if (i == 0 and 
 						len(shape.magnitudeByTime) != 1 and
 						shape.magnitudeByTime[i + 1] >= mediumRange and 
-						percentDiff(shape.magnitudeByTime[i + 1], shape.magnitudeByTime[i]) > 0.2):
+						utils.percentDiff(shape.magnitudeByTime[i + 1], shape.magnitudeByTime[i]) > 0.2):
 						isPoint = True
 					if not isPoint:
 						shape.magnitudeByTime[i] = -1
@@ -203,6 +153,71 @@ class FilterShapeStrategy(BaseShapeStrategy):
 					auxiliaryPoints.extend([p for p in shape.auxiliaryPoints if p[0] == i + shape.timeIndexStart])
 		shapeList = newShapeList
 		print("Filtering Notes: %d " % len(shapeList))
+		for shape in shapeList:
+			for point in shape.points:
+				if not(shape in self.usedPointsCache[point[0]][point[1]]):
+					import pdb;pdb.set_trace()
+
+		# Combine existing shapes that are consecutive in time, and share similar frequencies.
+		shapeList.sort(key=lambda shape: shape.timeIndexStart)
+		newShapeList = []
+		for shape in shapeList:
+			# Check if a point is in cache. If not, it was removed by earlier iteration of this so we do not add to newShapeList
+			# Should be correct since this processes shapes top down
+			if shape in self.usedPointsCache[shape.points[0][0]][shape.points[0][1]]:
+				lookForConnection = True	# Set to true if a connecting shape is found, indicating that there could be more connecting shapes.
+				while lookForConnection:
+					possibleConnectingShapes = set([])
+					cachePoints = set([])	# Caches containing possibleConnectingShapes
+					lookForConnection = False
+					# We will check each cache point below the ending points (including diagonals).
+					for p in shape.getEndingPoints():
+						if p[0] < len(d2Array) - 1:
+							if p[1] > 1:
+								cachePoints.add((p[0] + 1, p[1] - 1))
+							cachePoints.add((p[0] + 1, p[1]))
+							if p[1] < len(d2Array[0]) - 1:
+								cachePoints.add((p[0] + 1, p[1] + 1))
+					for cachePoint in cachePoints:
+						possibleConnectingShapes.update(self.usedPointsCache[cachePoint[0]][cachePoint[1]])
+					for connectingShape in possibleConnectingShapes:
+						# Checks that the 2 shapes are consecutive in time, have similar centerOfMass, and 
+						# the connecting magnitudeByTimes are similar
+						if (shape.timeIndexEnd + 1 == connectingShape.timeIndexStart and
+							utils.percentDiff(connectingShape.centerOfMass, shape.centerOfMass) < 0.01 and
+							utils.percentDiff(shape.magnitudeByTime[-1], connectingShape.magnitudeByTime[0] < 0.5)):
+						
+							# Combine the 2 shapes into 1 shape by emptying connectingShape and unloading to shape
+							points = copy.deepcopy(connectingShape.points)
+							points.extend(shape.points)
+							auxiliaryPoints = copy.deepcopy(connectingShape.auxiliaryPoints)
+							auxiliaryPoints.extend(shape.auxiliaryPoints)
+
+							timeIndices = [p[0] for p in points]
+							start = min(timeIndices)
+							end = max(timeIndices)
+							# We transfer magnitudes to the new shape to preserve combined harmonics
+							magnitudeToTransfer = shape.magnitudeByTime[start - shape.timeIndexStart :]
+							magnitudeToTransfer.extend(connectingShape.magnitudeByTime[: end - connectingShape.timeIndexStart + 1])
+							if sum(magnitudeToTransfer) < 0:
+								magnitudeToTransfer = [0 for m in magnitudeToTransfer]
+							for p in shape.points:
+								self.usedPointsCache[p[0]][p[1]].remove(shape)
+							shape = FrequencyTimeShape(points, auxiliaryPoints, d2Array, magnitudeToTransfer)
+							# Remove the connecting shape from cache
+							for cp in connectingShape.points:
+								self.usedPointsCache[cp[0]][cp[1]].remove(connectingShape)
+							for p in shape.points:
+								self.usedPointsCache[p[0]][p[1]].append(shape)
+							lookForConnection = True
+							break
+				newShapeList.append(shape)
+		shapeList = newShapeList
+		print("Filtering Notes: %d " % len(shapeList))
+		for shape in shapeList:
+			for point in shape.points:
+				if not(shape in self.usedPointsCache[point[0]][point[1]]):
+					import pdb;pdb.set_trace()
 
 
 		# Evaluate each shape relative to time-local information.
@@ -221,7 +236,7 @@ class FilterShapeStrategy(BaseShapeStrategy):
 					for cache in [self.usedPointsCache[timeIndex][currentIndex], self.usedPointsCache[timeIndex][currentIndex + 1]]:
 						for cachedShape in cache:
 							# The chance of higher harmonics being the victim is lower
-							if percentDiff(cachedShape.centerOfMass / currentHarmonic, shape.centerOfMass) < (5 - currentHarmonic) * 0.005 + 0.015:
+							if utils.percentDiff(cachedShape.centerOfMass / currentHarmonic, shape.centerOfMass) < (5 - currentHarmonic) * 0.005 + 0.015:
 								allPossibleHarmonics.add(cachedShape)
 				currentHarmonic += 1
 				currentIndex = int(shape.centerOfMass * currentHarmonic)
@@ -256,6 +271,9 @@ class FilterShapeStrategy(BaseShapeStrategy):
 					self.usedPointsCache[p[0]][p[1]].remove(shape)
 		shapeList = newShapeList
 		print("Filtering Notes: %d " % len(shapeList))
+
+		# shapeList = [shape for shape in shapeList if shape.harmonicCount >= 2 ]
+		# print("Filtering Notes: %d " % len(shapeList))
 				
 		return shapeList
 

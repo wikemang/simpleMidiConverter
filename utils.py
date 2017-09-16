@@ -5,28 +5,6 @@ def percentDiff(a, b):
 
 # I've read somewhere that python isnt optimized for recursion because of stackframe management so we do this iteratively
 # fuzzy=True will imply that the value may not exist and we want the 2 indices the value is between. Return lower index.
-# def binSearch(array, keyFunc, value, fuzzy=False):
-# 	firstIndex=0
-# 	length = len(array)
-# 	middleIndex = int(firstIndex + length / 2)
-# 	middleElement = keyFunc(array[middleIndex])
-# 	while middleElement != value:
-# 		if middleElement < value:
-# 			length = middleIndex - firstIndex
-# 		else:
-# 			length = length - middleIndex - firstIndex - 1
-# 			firstIndex = middleIndex + 1
-# 		if length == 0:
-# 			if fuzzy:
-# 				if middleElement < value:
-# 					return middleIndex
-# 				elif middleIndex + 1 < len(array):
-# 					return middleIndex + 1
-# 			return -1
-# 		middleIndex = int(firstIndex + length / 2)
-# 		middleElement = keyFunc(array[middleIndex])
-
-# 	return middleIndex
 
 def binSearch(array, keyFunc, value, fuzzy=False):
 	firstIndex = 0

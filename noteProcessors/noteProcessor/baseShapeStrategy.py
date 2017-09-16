@@ -13,7 +13,7 @@ class FrequencyTimeShape:
 		self.timeIndexStart = None	# First time index of all points
 		self.timeIndexEnd = None	# Last time index of all points
 		self.isBaseCandidate = True	# If this note qualifies as a base note (ie. not a harmonic)
-		self.usedAsHarmonic = []	# Array to keep track of which time range of this shape is used as a harmonic
+		self.usedAsHarmonic = []	# Array to keep track of which shape each time index of this shape is a harmonic for.
 		self.harmonicCount = 0	# Number of harmonics detected when this shape is used as base frequency.
 		self.magnitudeByTime = magnitudeByTime	# Magnitude over time indices. Index 0 here corresponds to timeIndexStart of main array
 		self.reconsolidatedShape = False	# This is used in edge case of restructing the shape internally. TODO: make less hacky
@@ -28,7 +28,7 @@ class FrequencyTimeShape:
 
 		if not self.reconsolidatedShape:	# MagnitudeByTime will not be recalculated
 			self.magnitudeByTime = [0 for i in range(self.timeIndexStart, self.timeIndexEnd + 1)]
-		self.usedAsHarmonic = [False for i in range(self.timeIndexStart, self.timeIndexEnd + 1)]
+		self.usedAsHarmonic = [[] for i in range(self.timeIndexStart, self.timeIndexEnd + 1)]
 
 		totalMagnitude = 0
 		weightedMagnitude = 0
@@ -53,10 +53,10 @@ class FrequencyTimeShape:
 
 	# This function is called when another shape uses this one as a harmonic.
 	# If more than half of this shape's time duration is used as a harmonic, this shape is no longer a base frequency candidate.
-	def updateBaseCandidate(self, startIndex, endIndex):
+	def updateBaseCandidate(self, startIndex, endIndex, shape):
 		for i in range(startIndex, endIndex + 1):
-			self.usedAsHarmonic[i - self.timeIndexStart] = True
-		if len(self.usedAsHarmonic) < len([x for x in self.usedAsHarmonic if x == True]) * 2:
+			self.usedAsHarmonic[i - self.timeIndexStart].append(shape)
+		if len(self.usedAsHarmonic) < len([x for x in self.usedAsHarmonic if x != []]) * 2:
 			self.isBaseCandidate = False
 
 	def getEndingPoints(self):

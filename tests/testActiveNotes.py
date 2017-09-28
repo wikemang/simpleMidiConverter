@@ -3,9 +3,9 @@ import json
 
 from activeNote import ActiveNote
 from simpleMidiConverter import SimpleMidiConverter
-from noteProcessors.noteProcessor.noteProcessor import NoteProcessor
-from noteProcessors.noteProcessor.baseShapeStrategy import BaseShapeStrategy
-from noteProcessors.noteProcessor.shapeStrategies import FilterShapeStrategy
+from noteProcessors.discreteNoteProcessor.discreteNoteProcessor import DiscreteNoteProcessor
+from noteProcessors.discreteNoteProcessor.baseShapeStrategy import BaseShapeStrategy
+from noteProcessors.discreteNoteProcessor.shapeStrategies import FilterShapeStrategy
 import utils
 
 # This is a sort of fuzzy regression test. 
@@ -17,8 +17,8 @@ import utils
 
 
 testProcessors = [
-	{"noteProcessor": NoteProcessor, "shapeStrategy": BaseShapeStrategy},
-	{"noteProcessor": NoteProcessor, "shapeStrategy": FilterShapeStrategy},
+	{"noteProcessor": DiscreteNoteProcessor, "shapeStrategy": BaseShapeStrategy},
+	{"noteProcessor": DiscreteNoteProcessor, "shapeStrategy": FilterShapeStrategy},
 ]
 testFiles = ["audio/Ltheme.wav", "audio/Ltheme2.wav"]
 

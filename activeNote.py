@@ -10,7 +10,7 @@ class ActiveNote:
 		self.loudness = loudness
 
 	def print(self):
-		print("Note: %f \tStart: %f \t End: %f \tLoudness: %f" % ((self.note.name + "  " + int(self.note.frequency)).ljust(15), self.start, closestNote.end, self.loudness))
+		print("Note: %s \tStart: %f \t Duration: %f \tLoudness: %f" % ((self.note.name + "  %s" % int(self.note.frequency)).ljust(15), self.startTime, self.startTime - self.endTime, self.loudness))
 
 	@classmethod
 	def printList(cls, noteList):

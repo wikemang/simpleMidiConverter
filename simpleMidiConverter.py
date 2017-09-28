@@ -2,7 +2,7 @@ import time
 import copy
 
 from noteParser import NoteParser
-from noteProcessors.noteProcessor.noteProcessor import NoteProcessor
+from noteProcessors.discreteNoteProcessor.discreteNoteProcessor import DiscreteNoteProcessor
 from midiWriter import MidiWriter
 from wavParser import SimpleWavParser
 
@@ -15,17 +15,18 @@ class SimpleMidiConverter:
 		self.noteParser = noteParser or NoteParser()
 
 		self.midiWriter = midiWriter or MidiWriter(self.noteParser.parseNotes())
-		self.noteProcessor = noteProcessor or NoteProcessor
+		self.noteProcessor = noteProcessor or DiscreteNoteProcessor
 		self.noteProcessorArgs = kwargs
+		self.activeNotes = []
 
 	def getNotes(self):
 		print("Reading file...")
 		t = time.clock()
-		self.waveforms, self.sampleRate, _ = self.fileReader.getRawData(self.fileName)
+		self.waveform, self.sampleRate, _ = self.fileReader.getSingleWaveform(self.fileName)
 		print("%f s" % (time.clock() - t))
 
 		# TODO refactor this
-		self.noteProcessor = self.noteProcessor(self.waveforms, self.sampleRate, self.noteParser, **self.noteProcessorArgs)
+		self.noteProcessor = self.noteProcessor(self.waveform, self.sampleRate, self.noteParser, **self.noteProcessorArgs)
 		print("Getting notes...")
 		t = time.clock()
 		notes = self.noteProcessor.run()
@@ -33,5 +34,5 @@ class SimpleMidiConverter:
 		return notes
 
 	def run(self):
-		notes = self.getNotes()
-		self.midiWriter.writeActiveNotesToFile(notes, self.fileName[:self.fileName.index(".")])
+		self.activeNotes = self.getNotes()
+		self.midiWriter.writeActiveNotesToFile(self.activeNotes, self.fileName[:self.fileName.index(".")])

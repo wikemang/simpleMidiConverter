@@ -29,7 +29,7 @@ class IntervalProperty:
 
 class DiscreteNoteProcessor(AbstractNoteProcessor):
 	def __init__(self, waveform, sampleRate, noteParser=None, shapeStrategy=None):
-		super(DiscreteNoteProcessor, self).__init__(waveforms, sampleRate, noteParser)
+		super(DiscreteNoteProcessor, self).__init__(waveform, sampleRate, noteParser)
 
 		# Number of intervals per second
 		# Too high means inaccurate perceived frequencies, too low means inacurate time periods
@@ -102,7 +102,6 @@ class DiscreteNoteProcessor(AbstractNoteProcessor):
 					if shapeArray[i + shape.timeIndexStart][freq] < shape.magnitudeByTime[i]:
 						shapeArray[i + shape.timeIndexStart][freq] = shape.magnitudeByTime[i]
 		utils.d2Plot(shapeArray, "out/shape.png")
-		import pdb;pdb.set_trace()
 
 		activeNotes = self.getActiveNotesFromShapeList(shapeList)
 		return activeNotes

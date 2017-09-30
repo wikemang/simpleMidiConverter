@@ -5,44 +5,16 @@ from collections import defaultdict
 import time
 import gc
 
+from noteProcessors.continuousNoteProcessor.message import Message, MessageType, NewNoteMessage
+from noteProcessors.continuousNoteProcessor.constants import Constants
 from activeNote import ActiveNote
 from noteProcessors.abstractNoteProcessor import AbstractNoteProcessor
 import utils
 from noteParser import Note
 
-class MessageType:
-	NO_EVENT = 0
-	NEW_NOTE = 1
-	NEW_FRAME = 2
-
-class Message:
-	def __init__(self, messageType):
-		self.messageType = messageType
-
-# This message should tell that a new note be created with the parameters
-class NewNoteMessage(Message):
-	def __init__(self, startIndex, endIndex, note, loudness, centerFrequencyIndex):
-		self.startIndex = startIndex
-		self.endIndex = endIndex
-		self.note = note
-		self.loudness = loudness
-		self.centerFrequencyIndex = centerFrequencyIndex
-		super(NewNoteMessage, self).__init__(MessageType.NEW_NOTE)
-
-# This message tells the manager that the same note may have repeated in the same frame, but is unsure
-class NewFrameMessage(Message):
-	def __init__(self):
-		super(NewFrameMessage, self).__init__(MessageType.NEW_FRAME)
-
-# Constants for note processing
-class ProcessConstants:
-	MAX_BUFFER_SIZE = 250	# Should only be about a few seconds (ie the length of really long note)
-	CUTOFF_SHARPNESS = 4
-	COLUMN_PROCESSOR_DATA_WIDTH = 5
 
 
 class ColumnProcessor:
-	data = deque([], ProcessConstants.MAX_BUFFER_SIZE)
 	runningMaximum = 0
 
 	@classmethod
@@ -58,8 +30,8 @@ class ColumnProcessor:
 		self.maxHarmonic = maxHarmonic
 
 		self.centerIndex = int(round(modifiedFrequency * samplesPerFrame / sampleRate))
-		self.firstIndex = self.centerIndex - int(ProcessConstants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
-		self.lastIndex = self.centerIndex + int(ProcessConstants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
+		self.firstIndex = self.centerIndex - int(Constants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
+		self.lastIndex = self.centerIndex + int(Constants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
 
 		self.preNoteOffset = 0
 		self.peakIndex = 0
@@ -70,7 +42,7 @@ class ColumnProcessor:
 		self.manager = manager
 		self.previousLoudness = 0
 		self.processingIndex = 0
-		self.maxFrequencyIndex = len(ColumnProcessor.data[0])
+		self.maxFrequencyIndex = len(self.manager.data[0])
 
 	def resetPeak(self):
 		self.firstIndex -= self.offTuneIndex
@@ -92,7 +64,7 @@ class ColumnProcessor:
 
 	# This function is vaguely based on Jenks Natural Breaks Optimization.
 	# We make many simplifications here:
-	# 1. There are always 3 classes, the pre-note class, the note class, and the post-note class.
+	# 1. There are always 3 classes: the pre-note class, the note class, and the post-note class.
 	# 2. The pre-note end index will be one of the first 3 values, since having arrived at this stage in the
 	# code implies that the peak is within the first 3 values.
 	# 3. An exhaustive search will then be made to find the start index of the post-note class.
@@ -124,7 +96,7 @@ class ColumnProcessor:
 	def getMoreAccurateIndices(self, startIndex, endIndex):
 		sums = []
 		for i in range(startIndex - 1, endIndex + 2):
-			sums.append(sum(ColumnProcessor.data[i][self.firstIndex: self.lastIndex + 1]))
+			sums.append(sum(self.manager.data[i][self.firstIndex: self.lastIndex + 1]))
 		# if self.note.name == "A4":
 		# 	import pdb;pdb.set_trace()
 		indices = self.getNaturalBreaks(sums)
@@ -146,7 +118,7 @@ class ColumnProcessor:
 				return Message(MessageType.NO_EVENT)
 			absoluteLoudness = sum([
 				sum(
-					[ColumnProcessor.data[r][c] for c in range(self.firstIndex, self.lastIndex + 1)]
+					[self.manager.data[r][c] for c in range(self.firstIndex, self.lastIndex + 1)]
 				) for r in range(startIndex, endIndex)
 			]) / (endIndex - startIndex)
 			# Add in magnitudes from harmonics
@@ -155,13 +127,13 @@ class ColumnProcessor:
 				centerIndex = int(originalCenter * h)
 				if centerIndex >= self.maxFrequencyIndex:
 					break
-				firstIndex = centerIndex - int(ProcessConstants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
-				lastIndex = centerIndex + int(ProcessConstants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
+				firstIndex = centerIndex - int(Constants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
+				lastIndex = centerIndex + int(Constants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
 				for i in range(firstIndex, lastIndex + 1):
 					self.propagateUpColumn(i)
 				harmonicLoudness = sum([
 					sum(
-						[ColumnProcessor.data[r][c] for c in range(firstIndex, lastIndex + 1)]
+						[self.manager.data[r][c] for c in range(firstIndex, lastIndex + 1)]
 					) for r in range(startIndex, endIndex)
 				]) / (endIndex - startIndex)
 				absoluteLoudness += harmonicLoudness
@@ -173,24 +145,24 @@ class ColumnProcessor:
 	def getColumnSum(self, columnIndex, propagateColumn=False):
 		if propagateColumn:
 			self.propagateUpColumn(columnIndex)
-		return sum([ColumnProcessor.data[i][columnIndex] for i in range(self.peakIndex, self.processingIndex + 1)])
+		return sum([self.manager.data[i][columnIndex] for i in range(self.peakIndex, self.processingIndex + 1)])
 
 	def getSideColumnSums(self):
-		leftColumnSum = sum([ColumnProcessor.data[i][self.firstIndex] for i in range(self.peakIndex, self.processingIndex + 1)])
-		rightColumnSum = sum([ColumnProcessor.data[i][self.lastIndex] for i in range(self.peakIndex, self.processingIndex + 1)])
+		leftColumnSum = sum([self.manager.data[i][self.firstIndex] for i in range(self.peakIndex, self.processingIndex + 1)])
+		rightColumnSum = sum([self.manager.data[i][self.lastIndex] for i in range(self.peakIndex, self.processingIndex + 1)])
 		return leftColumnSum, rightColumnSum
 
 	def interpolateColumn(self, columnIndex):
 		index = self.peakIndex
 		for index in range(self.peakIndex, self.processingIndex):
-			ColumnProcessor.data[index][columnIndex] = (ColumnProcessor.data[index][columnIndex - 1] + ColumnProcessor.data[index][columnIndex + 1]) / 2
+			self.manager.data[index][columnIndex] = (self.manager.data[index][columnIndex - 1] + self.manager.data[index][columnIndex + 1]) / 2
 
 		# We search down here
 		index = self.processingIndex
-		while index != ProcessConstants.MAX_BUFFER_SIZE:
-			if ColumnProcessor.data[index][columnIndex] == 0:
-				if ColumnProcessor.data[index][columnIndex - 1] > 0 and ColumnProcessor.data[index][columnIndex - 1] > 0:
-					ColumnProcessor.data[index][columnIndex] = (ColumnProcessor.data[index][columnIndex - 1] + ColumnProcessor.data[index][columnIndex + 1]) / 2
+		while index != Constants.MAX_BUFFER_SIZE:
+			if self.manager.data[index][columnIndex] == 0:
+				if self.manager.data[index][columnIndex - 1] > 0 and self.manager.data[index][columnIndex - 1] > 0:
+					self.manager.data[index][columnIndex] = (self.manager.data[index][columnIndex - 1] + self.manager.data[index][columnIndex + 1]) / 2
 				else:
 					break
 			else:
@@ -249,17 +221,17 @@ class ColumnProcessor:
 
 
 	def checkPeak(self, currentSum, referenceSum):
-		if currentSum - referenceSum > ColumnProcessor.runningMaximum / 10 * ProcessConstants.COLUMN_PROCESSOR_DATA_WIDTH:
+		if currentSum - referenceSum > ColumnProcessor.runningMaximum / 10 * Constants.COLUMN_PROCESSOR_DATA_WIDTH:
 			if utils.percentDiff(currentSum, referenceSum) > 3:
 				return True
 		return False
 
 	def checkEndPeak(self, currentIndex, currentSum):
-		prevSum = sum([ColumnProcessor.data[currentIndex - 1][j] for j in range(self.firstIndex, self.lastIndex + 1)])
+		prevSum = sum([self.manager.data[currentIndex - 1][j] for j in range(self.firstIndex, self.lastIndex + 1)])
 		if prevSum > currentSum and utils.percentDiff(prevSum, currentSum) > 1:
-			prev1Sum = sum([ColumnProcessor.data[currentIndex - 2][j] for j in range(self.firstIndex, self.lastIndex + 1)])
+			prev1Sum = sum([self.manager.data[currentIndex - 2][j] for j in range(self.firstIndex, self.lastIndex + 1)])
 			if utils.percentDiff(prevSum, prev1Sum) < 0.2:
-				futureSum = sum([ColumnProcessor.data[currentIndex + 1][j] for j in range(self.firstIndex, self.lastIndex + 1)])
+				futureSum = sum([self.manager.data[currentIndex + 1][j] for j in range(self.firstIndex, self.lastIndex + 1)])
 				if utils.percentDiff(currentSum, futureSum) < 0.2:
 					return True
 
@@ -270,40 +242,40 @@ class ColumnProcessor:
 	def propagateUpNegativeRow(self):
 
 		for j in range(self.firstIndex, self.lastIndex + 1):
-			if ColumnProcessor.data[self.processingIndex][j] < 0:	# Propagate negative number up
+			if self.manager.data[self.processingIndex][j] < 0:	# Propagate negative number up
 				rIndex = self.processingIndex
 				while rIndex > 0:
 					rIndex -= 1
-					if ColumnProcessor.data[rIndex][j] > -ColumnProcessor.data[self.processingIndex][j]:
-						ColumnProcessor.data[rIndex][j] += ColumnProcessor.data[self.processingIndex][j]
-						ColumnProcessor.data[self.processingIndex][j] = 0
+					if self.manager.data[rIndex][j] > -self.manager.data[self.processingIndex][j]:
+						self.manager.data[rIndex][j] += self.manager.data[self.processingIndex][j]
+						self.manager.data[self.processingIndex][j] = 0
 						break
 					else:
-						ColumnProcessor.data[self.processingIndex][j] += ColumnProcessor.data[rIndex][j]
-						ColumnProcessor.data[rIndex][j] = 0
-				ColumnProcessor.data[self.processingIndex][j] = 0
+						self.manager.data[self.processingIndex][j] += self.manager.data[rIndex][j]
+						self.manager.data[rIndex][j] = 0
+				self.manager.data[self.processingIndex][j] = 0
 
 	def propagateUpColumn(self, columnIndex):
-		dataIndex = ProcessConstants.MAX_BUFFER_SIZE
+		dataIndex = Constants.MAX_BUFFER_SIZE
 		negativeCollector = 0
 		while dataIndex >= self.peakIndex - 3 - self.preNoteOffset:
 			dataIndex -= 1
-			if ColumnProcessor.data[dataIndex][columnIndex] < 0:	# Propagate negative number up
-				negativeCollector += ColumnProcessor.data[dataIndex][columnIndex]
-				ColumnProcessor.data[dataIndex][columnIndex] = 0
+			if self.manager.data[dataIndex][columnIndex] < 0:	# Propagate negative number up
+				negativeCollector += self.manager.data[dataIndex][columnIndex]
+				self.manager.data[dataIndex][columnIndex] = 0
 			else:
 				if negativeCollector < 0:
-					if ColumnProcessor.data[dataIndex][columnIndex] > -negativeCollector:
-						ColumnProcessor.data[dataIndex][columnIndex] += negativeCollector
+					if self.manager.data[dataIndex][columnIndex] > -negativeCollector:
+						self.manager.data[dataIndex][columnIndex] += negativeCollector
 						negativeCollector = 0
 					else:
-						negativeCollector += ColumnProcessor.data[dataIndex][columnIndex]
-						ColumnProcessor.data[dataIndex][columnIndex] = 0
+						negativeCollector += self.manager.data[dataIndex][columnIndex]
+						self.manager.data[dataIndex][columnIndex] = 0
 
 	# def getPreNoteValue(self):
-	# 	a = sum(ColumnProcessor.data[self.peakIndex - 2 - self.preNoteOffset][self.firstIndex: self.lastIndex])
-	# 	b = sum(ColumnProcessor.data[self.peakIndex - 1 - self.preNoteOffset][self.firstIndex: self.lastIndex])
-	# 	c = sum(ColumnProcessor.data[self.peakIndex - self.preNoteOffset][self.firstIndex: self.lastIndex])
+	# 	a = sum(self.manager.data[self.peakIndex - 2 - self.preNoteOffset][self.firstIndex: self.lastIndex])
+	# 	b = sum(self.manager.data[self.peakIndex - 1 - self.preNoteOffset][self.firstIndex: self.lastIndex])
+	# 	c = sum(self.manager.data[self.peakIndex - self.preNoteOffset][self.firstIndex: self.lastIndex])
 	# 	diffAB = b - a
 	# 	diffBC = c - b
 	# 	if diffAB < 0 or diffBC < 0:
@@ -311,7 +283,7 @@ class ColumnProcessor:
 	# 	if diff
 	def checkPossibleMissedPeak(self, currentSum, currentIndex):
 		if self.checkPeak(currentSum, self.peakValue):
-			if self.checkPeak(currentSum, sum(ColumnProcessor.data[currentIndex - 8][self.firstIndex: self.lastIndex + 1])):
+			if self.checkPeak(currentSum, sum(self.manager.data[currentIndex - 8][self.firstIndex: self.lastIndex + 1])):
 				return True
 		return False
 
@@ -322,9 +294,9 @@ class ColumnProcessor:
 	def fillComb(self):
 
 		for j in range(self.firstIndex, self.lastIndex + 1):
-			if ColumnProcessor.data[self.processingIndex][j] == 0:
-				if ColumnProcessor.data[self.processingIndex][j - 1] > 0 and ColumnProcessor.data[self.processingIndex][j + 1] > 0:
-					ColumnProcessor.data[self.processingIndex][j] = (ColumnProcessor.data[self.processingIndex][j - 1] + ColumnProcessor.data[self.processingIndex][j + 1]) / 2
+			if self.manager.data[self.processingIndex][j] == 0:
+				if self.manager.data[self.processingIndex][j - 1] > 0 and self.manager.data[self.processingIndex][j + 1] > 0:
+					self.manager.data[self.processingIndex][j] = (self.manager.data[self.processingIndex][j - 1] + self.manager.data[self.processingIndex][j + 1]) / 2
 
 
 	def processNewDataRow(self):
@@ -334,14 +306,14 @@ class ColumnProcessor:
 		if self.peakIndex - self.preNoteOffset - 2 < 0:
 			self.resetPeak()
 			self.peakIndex -= 1
-		self.processingIndex = ProcessConstants.MAX_BUFFER_SIZE - 1
+		self.processingIndex = Constants.MAX_BUFFER_SIZE - 1
 		self.propagateUpNegativeRow()
-		self.processingIndex = int(ProcessConstants.MAX_BUFFER_SIZE / 2)
+		self.processingIndex = int(Constants.MAX_BUFFER_SIZE / 2)
 		self.fillComb()
 
-		row = ColumnProcessor.data[self.processingIndex][self.firstIndex: self.lastIndex + 1]
+		row = self.manager.data[self.processingIndex][self.firstIndex: self.lastIndex + 1]
 		initialSum = sum(row)
-		referenceSum = sum(ColumnProcessor.data[self.processingIndex - 2][self.firstIndex: self.lastIndex + 1])
+		referenceSum = sum(self.manager.data[self.processingIndex - 2][self.firstIndex: self.lastIndex + 1])
 		if self.peakIndex < 0:
 			# Look for new peak
 			if self.checkPeak(initialSum, referenceSum):
@@ -374,11 +346,11 @@ class ColumnProcessor:
 					if self.checkNoteShift():
 						self.resetPeak()
 						return Message(MessageType.NO_EVENT)
-					self.peakValue = sum(ColumnProcessor.data[self.peakIndex][self.firstIndex: self.lastIndex + 1])
-					self.preNoteValue = sum(ColumnProcessor.data[self.peakIndex - 2 - self.preNoteOffset][self.firstIndex: self.lastIndex + 1])	# TODO: Negative?
+					self.peakValue = sum(self.manager.data[self.peakIndex][self.firstIndex: self.lastIndex + 1])
+					self.preNoteValue = sum(self.manager.data[self.peakIndex - 2 - self.preNoteOffset][self.firstIndex: self.lastIndex + 1])	# TODO: Negative?
 					# Check if it also satisfies note end after shift:
 					temp = self.maxValue / 10 + 9 * self.preNoteValue / 10
-					initialSum = sum(ColumnProcessor.data[self.processingIndex][self.firstIndex: self.lastIndex + 1])
+					initialSum = sum(self.manager.data[self.processingIndex][self.firstIndex: self.lastIndex + 1])
 					if initialSum < temp or utils.percentDiff(initialSum, temp) < 0.2:
 						return self.getNoteMessage(self.peakIndex - self.preNoteOffset, self.processingIndex)
 				else:
@@ -395,7 +367,7 @@ class ColumnProcessor:
 		# 	# In the case of a missed peak, we expect that there is a strictly non-decreasing climb from the base of the peak.
 		# 	while baseIndex > 0:
 		# 		baseIndex -= 1
-		# 		currentSum = sum(ColumnProcessor.data[baseIndex][self.firstIndex: self.lastIndex])
+		# 		currentSum = sum(self.manager.data[baseIndex][self.firstIndex: self.lastIndex])
 		# 		if currentSum > prevSum:
 		# 			break
 		# 		firstDerivatives.append(prevSum - currentSum)
@@ -407,7 +379,7 @@ class ColumnProcessor:
 		# 		modifiedFD = [firstDerivatives[i] * i for i in range(len(firstDerivatives))]
 		# 		trueBaseIndex = modifiedFD.index(max(modifiedFD))
 
-		# 		self.preNoteValue = sum(ColumnProcessor.data[self.processingIndex - trueBaseIndex - 2][self.firstIndex: self.lastIndex])
+		# 		self.preNoteValue = sum(self.manager.data[self.processingIndex - trueBaseIndex - 2][self.firstIndex: self.lastIndex])
 		# 		self.peakIndex = self.processingIndex - trueBaseIndex
 		# 		self.peakValue = initialSum
 		# 		self.maxValue = self.peakValue
@@ -426,9 +398,6 @@ class ColumnProcessor:
 
 
 class ColumnManager:
-	# Consider Moving these constants to more genric constants file
-	NOTES_PER_OCTAVE = 12
-	NEXT_NOTE_FREQUENCY = 1.05946309	# 12th root of 2
 
 	def __init__(self, outOfTune, noteParser, sampleRate, samplesPerFrame, samplesPerInterval, maxHarmonic=6):
 		self.globalIndex = 0 	# Index relative to start of global sample
@@ -437,19 +406,20 @@ class ColumnManager:
 		self.samplesPerInterval = samplesPerInterval
 		self.columnProcessors = []
 		self.activeNotes = []
-		ColumnProcessor.data.extend([[0 for i in range(int(samplesPerFrame / 2))] for i in range(ProcessConstants.MAX_BUFFER_SIZE)])
+		self.data = deque([], Constants.MAX_BUFFER_SIZE)
+		self.data.extend([[0 for i in range(int(samplesPerFrame / 2))] for i in range(Constants.MAX_BUFFER_SIZE)])
 		for note in noteParser.parseNotes():
 			self.columnProcessors.append(
 				ColumnProcessor(note, sampleRate, samplesPerFrame, note.frequency * outOfTune, maxHarmonic,  self)
 			)
 
 	def processNewDataRow(self, row):
-		ColumnProcessor.data.append(row)
+		self.data.append(row)
 		ColumnProcessor.updateRunningMaximum(max(row))
 		for i in range(len(self.columnProcessors)):
 			message = self.columnProcessors[i].processNewDataRow()
 			if message.messageType == MessageType.NEW_NOTE:
-				globalIndexOffset = self.globalIndex - ProcessConstants.MAX_BUFFER_SIZE - 1
+				globalIndexOffset = self.globalIndex - Constants.MAX_BUFFER_SIZE - 1
 				self.activeNotes.append(
 					ActiveNote(message.note,
 						(message.startIndex  + globalIndexOffset) * self.samplesPerInterval / self.sampleRate,
@@ -542,7 +512,7 @@ class ContinuousNoteProcessor(AbstractNoteProcessor):
 		for index, loudness in notesFoundInFrame.items():
 			elements3 = [row[i] for i in range(index - 3, index + 4)]
 			referenceValue = max(elements3)
-			value = loudness / ProcessConstants.COLUMN_PROCESSOR_DATA_WIDTH
+			value = loudness / Constants.COLUMN_PROCESSOR_DATA_WIDTH
 			if utils.percentDiff(referenceValue, value) > 1 and value < referenceValue:
 				return
 			referenceIndex = index - 1 + elements3.index(referenceValue)
@@ -609,7 +579,7 @@ class ContinuousNoteProcessor(AbstractNoteProcessor):
 			for i in range(max(sampleIndex, startingSampleIndex + samplesPerFrame - samplesPerInterval) , sampleIndex + samplesPerFrame - samplesPerInterval):
 				paddedWaveform[i] = 0
 
-		for i in range(ProcessConstants.MAX_BUFFER_SIZE):
+		for i in range(Constants.MAX_BUFFER_SIZE):
 			columnManager.processNewDataRow([0 for i in range(len(currentFFT))])
 
 		# for columnIndex in range(len(d2Array[0])):
@@ -629,5 +599,93 @@ class ContinuousNoteProcessor(AbstractNoteProcessor):
 		# 					negativeCollector += d2Array[dataIndex][columnIndex]
 		# 					d2Array[dataIndex][columnIndex] = 0
 		# utils.d2Plot(d2Array, "out/continous2.png", widthCompression=100, heightCompression=10)
+
+		return columnManager.getActiveNotes()
+
+	def run2(self):
+		# Superimpose all channels into one waveform.
+
+		samplesPerInterval = 512
+		intervalsPerFrame = 128
+
+		trimFrames = 5
+
+		d2Array = []
+		samplesPerFrame = samplesPerInterval * intervalsPerFrame
+		fftLen = int(samplesPerFrame / 2) + 1
+
+		sampleIndex = 0
+		# TODO: since waveform is the max space, this effectively almost doubles space requirement for this program
+		# We can re-write paddedWaveform as wrapper around waveform if this becomes a problem
+		# You know I just wish python ints didnt take 28 bytes
+
+		outOfTune = self.getOutOfTune()
+		columnManager = ColumnManager(outOfTune, self.noteParser, self.sampleRate, samplesPerFrame, samplesPerInterval)
+
+		d2Array = []
+		maxSample = len(self.waveform)
+		counter = 0
+		while sampleIndex <= maxSample - samplesPerFrame:
+			counter += 1
+			print(counter)
+			gc.collect()
+			frameFFT = [abs(f) for f in fft.fft(self.waveform[sampleIndex: sampleIndex + samplesPerFrame])[:fftLen]]
+			frameRows = [[0 for i in range(fftLen)] for j in range(intervalsPerFrame)]
+			frameRows[0] = frameFFT
+
+			i = 1
+			while 2 ** i <= intervalsPerFrame:
+				j = 0
+				pow2 = (2 ** i)
+				while j <= pow2 - 1:
+					firstRowIndex =  j * int(intervalsPerFrame / pow2)
+					secondRowIndex = (j + 1) * int(intervalsPerFrame / pow2)
+					sampleLen = (secondRowIndex - firstRowIndex) * samplesPerInterval
+					firstFFTSampleIndex = firstRowIndex * samplesPerInterval + sampleIndex
+					firstFFT = [abs(f) for f in fft.fft(self.waveform[firstFFTSampleIndex: firstFFTSampleIndex + sampleLen])]
+					secondFFTSampleIndex = secondRowIndex * samplesPerInterval + sampleIndex
+					secondFFT = [abs(f) for f in fft.fft(self.waveform[secondFFTSampleIndex: secondFFTSampleIndex + sampleLen])]
+					for k in range(fftLen):
+						lerpRatio = 0 # Percent of first half
+						if k < pow2:
+							lerpRatio = 0.5 # We cant lerp for frequencies that are lost
+						else:
+							index = k / pow2
+							lowerIndex = math.floor(index)
+							higherIndex = math.ceil(index)
+							if lowerIndex == higherIndex:
+								lerpRatio = firstFFT[lowerIndex] / (firstFFT[lowerIndex] + secondFFT[lowerIndex])
+							else:
+								indexRatio = index - lowerIndex
+								firstValue = firstFFT[lowerIndex] * indexRatio + firstFFT[higherIndex] * (1 - indexRatio)
+								secondValue = secondFFT[lowerIndex] * indexRatio + secondFFT[higherIndex] * (1 - indexRatio)
+								lerpRatio = firstValue / (firstValue + secondValue)
+						frameRows[secondRowIndex][k] = (1 - lerpRatio) * frameRows[firstRowIndex][k]
+						frameRows[firstRowIndex][k] = lerpRatio * frameRows[firstRowIndex][k]
+					j += 2
+				i += 1
+
+			for row in frameRows:
+				d2Array.append(row[:2000])
+				#columnManager.processNewDataRow(row)
+			sampleIndex += samplesPerFrame
+
+		for columnIndex in range(len(d2Array[0])):
+			dataIndex = len(d2Array)
+			negativeCollector = 0
+			while dataIndex > 0:
+				dataIndex -= 1
+				if d2Array[dataIndex][columnIndex] < 0:	# Propagate negative number up
+					negativeCollector += d2Array[dataIndex][columnIndex]
+					d2Array[dataIndex][columnIndex] = 0
+				else:
+					if negativeCollector < 0:
+						if d2Array[dataIndex][columnIndex] > -negativeCollector:
+							d2Array[dataIndex][columnIndex] += negativeCollector
+							negativeCollector = 0
+						else:
+							negativeCollector += d2Array[dataIndex][columnIndex]
+							d2Array[dataIndex][columnIndex] = 0
+		utils.d2Plot(d2Array, "out/continous2.png", widthCompression=100, heightCompression=10)
 
 		return columnManager.getActiveNotes()

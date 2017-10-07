@@ -5,9 +5,9 @@ from noteProcessors.continuousNoteProcessor.continuousNoteProcessor import Conti
 from noteProcessors.discreteNoteProcessor.baseShapeStrategy import BaseShapeStrategy
 from noteProcessors.discreteNoteProcessor.shapeStrategies import FilterShapeStrategy
 
-#a = SimpleMidiConverter(fileName="audio/Ltheme2Modified.wav", noteProcessor=ContinuousNoteProcessor)
+a = SimpleMidiConverter(fileName="audio/Ltheme2Demo.wav", noteProcessor=ContinuousNoteProcessor)
 # BaseShapeStrategy does a direct conversion from frequency to notes.
-a = SimpleMidiConverter(fileName="audio/Ltheme2Modified.wav", noteProcessor=DiscreteNoteProcessor, shapeStrategy=FilterShapeStrategy)
+#a = SimpleMidiConverter(fileName="audio/Ltheme2Modified.wav", noteProcessor=DiscreteNoteProcessor, shapeStrategy=FilterShapeStrategy)
 a.run()
 
 notes = [n for n in a.activeNotes if n.note.frequency < 1760]

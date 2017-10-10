@@ -1,457 +1,27 @@
-from numpy import fft
+
 import copy
 from collections import deque
 from collections import defaultdict
+from numpy import fft
 import time
-import gc
 
-from noteProcessors.continuousNoteProcessor.message import Message, MessageType, NewNoteMessage
-from noteProcessors.continuousNoteProcessor.constants import Constants
 from activeNote import ActiveNote
-from noteProcessors.abstractNoteProcessor import AbstractNoteProcessor
-import utils
 from noteParser import Note
-
-
-
-class ColumnProcessor:
-	runningMaximum = 0
-
-	@classmethod
-	def updateRunningMaximum(cls, maximum):
-		diff = utils.percentDiff(maximum, cls.runningMaximum)
-		existingWeight = 4
-		if diff > 1:
-			existingWeight = 4 / diff
-		cls.runningMaximum = cls.runningMaximum * existingWeight / 5 + maximum * (5 - existingWeight) / 5
-
-	def __init__(self, note, sampleRate, samplesPerFrame, modifiedFrequency, maxHarmonic, manager):
-		self.note = note
-		self.maxHarmonic = maxHarmonic
-
-		self.centerIndex = int(round(modifiedFrequency * samplesPerFrame / sampleRate))
-		self.firstIndex = self.centerIndex - int(Constants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
-		self.lastIndex = self.centerIndex + int(Constants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
-
-		self.preNoteOffset = 0
-		self.peakIndex = 0
-		self.peakValue = 0
-		self.maxValue = 0
-		self.preNoteValue = 0
-		self.offTuneIndex = 0
-		self.manager = manager
-		self.previousLoudness = 0
-		self.processingIndex = 0
-		self.maxFrequencyIndex = len(self.manager.data[0])
-
-	def resetPeak(self):
-		self.firstIndex -= self.offTuneIndex
-		self.lastIndex -= self.offTuneIndex
-		if self.offTuneIndex != 0:
-			if self.offTuneIndex < 0:
-				for i in range(self.lastIndex + self.offTuneIndex + 1, self.lastIndex + 1):
-					self.propagateUpColumn(i)
-			else:
-				for i in range(self.firstIndex, self.firstIndex + self.offTuneIndex):
-					self.propagateUpColumn(i)
-
-		self.preNoteOffset = 0
-		self.peakIndex = 0
-		self.peakValue = 0
-		self.maxValue = 0
-		self.preNoteValue = 0
-		self.offTuneIndex = 0
-
-	# This function is vaguely based on Jenks Natural Breaks Optimization.
-	# We make many simplifications here:
-	# 1. There are always 3 classes: the pre-note class, the note class, and the post-note class.
-	# 2. The pre-note end index will be one of the first 3 values, since having arrived at this stage in the
-	# code implies that the peak is within the first 3 values.
-	# 3. An exhaustive search will then be made to find the start index of the post-note class.
-	# arr is input array
-	# Indices is start index of each class/group
-	def getNaturalBreaks(self, arr):
-		minVariance = -1
-		preNoteIndex = 0
-		middleIndex = max(4, int(len(arr) / 2))
-		for i in range(0, 3):
-			var1 = utils.getVariance(arr[0 : i + 1])
-			var2 = utils.getVariance(arr[i + 1: middleIndex])
-			if var2 + var1 < minVariance or minVariance < 0:
-				minVariance = var1 + var2
-				preNoteIndex = i + 1
-
-		minVariance = -1
-		postNoteIndex = 0
-		for i in range(preNoteIndex, len(arr) - 1):
-			var1 = utils.getVariance(arr[preNoteIndex : i + 1])
-			var2 = utils.getVariance(arr[i + 1: len(arr)])
-			if var2 + var1 < minVariance or minVariance < 0:
-				minVariance = var1 + var2
-				postNoteIndex = i + 1
-		return preNoteIndex, postNoteIndex
-
-
-	# This is very expensive but is acceptable since it processes on each real note.
-	def getMoreAccurateIndices(self, startIndex, endIndex):
-		sums = []
-		for i in range(startIndex - 1, endIndex + 2):
-			sums.append(sum(self.manager.data[i][self.firstIndex: self.lastIndex + 1]))
-		# if self.note.name == "A4":
-		# 	import pdb;pdb.set_trace()
-		indices = self.getNaturalBreaks(sums)
-		return indices[0] + startIndex - 1, indices[1] + startIndex - 1
-
-	def getNoteMessage(self, startIndex, endIndex):
-		# if self.note.name=="D5":
-		# 	#if self.manager.globalIndex > 400:
-		# 	print(self.manager.globalIndex)
-		# 		#import pdb;pdb.set_trace()
-		# TODO: make this check for short times instead
-		if endIndex - startIndex < 5:	# Too short note implies anomoly.
-			self.resetPeak()
-			return Message(MessageType.NO_EVENT)
-		else:
-			startIndex, endIndex = self.getMoreAccurateIndices(startIndex, endIndex)
-			if endIndex - startIndex < 5:	# Seems redudant but doing this saves a lot of time
-				self.resetPeak()
-				return Message(MessageType.NO_EVENT)
-			absoluteLoudness = sum([
-				sum(
-					[self.manager.data[r][c] for c in range(self.firstIndex, self.lastIndex + 1)]
-				) for r in range(startIndex, endIndex)
-			]) / (endIndex - startIndex)
-			# Add in magnitudes from harmonics
-			originalCenter = (self.firstIndex + self.lastIndex) / 2
-			for h in range(2, self.maxHarmonic + 1):
-				centerIndex = int(originalCenter * h)
-				if centerIndex >= self.maxFrequencyIndex:
-					break
-				firstIndex = centerIndex - int(Constants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
-				lastIndex = centerIndex + int(Constants.COLUMN_PROCESSOR_DATA_WIDTH / 2)
-				for i in range(firstIndex, lastIndex + 1):
-					self.propagateUpColumn(i)
-				harmonicLoudness = sum([
-					sum(
-						[self.manager.data[r][c] for c in range(firstIndex, lastIndex + 1)]
-					) for r in range(startIndex, endIndex)
-				]) / (endIndex - startIndex)
-				absoluteLoudness += harmonicLoudness
-			self.resetPeak()
-			if absoluteLoudness > self.previousLoudness or utils.percentDiff(absoluteLoudness, self.previousLoudness) < 0.3:
-				self.previousLoudness = absoluteLoudness
-			return NewNoteMessage(startIndex, endIndex, self.note, absoluteLoudness, self.centerIndex + self.offTuneIndex)
-
-	def getColumnSum(self, columnIndex, propagateColumn=False):
-		if propagateColumn:
-			self.propagateUpColumn(columnIndex)
-		return sum([self.manager.data[i][columnIndex] for i in range(self.peakIndex, self.processingIndex + 1)])
-
-	def getSideColumnSums(self):
-		leftColumnSum = sum([self.manager.data[i][self.firstIndex] for i in range(self.peakIndex, self.processingIndex + 1)])
-		rightColumnSum = sum([self.manager.data[i][self.lastIndex] for i in range(self.peakIndex, self.processingIndex + 1)])
-		return leftColumnSum, rightColumnSum
-
-	def interpolateColumn(self, columnIndex):
-		index = self.peakIndex
-		for index in range(self.peakIndex, self.processingIndex):
-			self.manager.data[index][columnIndex] = (self.manager.data[index][columnIndex - 1] + self.manager.data[index][columnIndex + 1]) / 2
-
-		# We search down here
-		index = self.processingIndex
-		while index != Constants.MAX_BUFFER_SIZE:
-			if self.manager.data[index][columnIndex] == 0:
-				if self.manager.data[index][columnIndex - 1] > 0 and self.manager.data[index][columnIndex - 1] > 0:
-					self.manager.data[index][columnIndex] = (self.manager.data[index][columnIndex - 1] + self.manager.data[index][columnIndex + 1]) / 2
-				else:
-					break
-			else:
-				break
-			index += 1
-
-
-
-	# This function currently vaguely checks the column sum.
-	# However, if there was a shift, we should also see a triangle-like pattern. More consise check in theory.
-	def tryOfftuneShift(self):
-		shiftIndex = 0
-		# Try left shift first
-		rightColumnSum = self.getColumnSum(self.lastIndex)
-		leftOverColumnSum = self.getColumnSum(self.firstIndex - 1, True)
-		while leftOverColumnSum > rightColumnSum or leftOverColumnSum == 0:
-			if leftOverColumnSum == 0:
-				self.interpolateColumn(self.firstIndex - 1)
-				leftOverColumnSum = self.getColumnSum(self.firstIndex - 1)
-			if leftOverColumnSum - rightColumnSum > 0:
-				shiftIndex -= 1
-				self.firstIndex -= 1
-				self.lastIndex -= 1
-			else:
-				break
-			leftOverColumnSum = self.getColumnSum(self.firstIndex - 1, True)
-			rightColumnSum = self.getColumnSum(self.lastIndex)
-		if shiftIndex != 0:
-			self.offTuneIndex += shiftIndex
-			return True
-		# Try right shift if not left shift
-		leftColumnSum = self.getColumnSum(self.firstIndex)
-		rightOverColumnSum = self.getColumnSum(self.lastIndex + 1, True)
-		while rightOverColumnSum > leftColumnSum or rightOverColumnSum == 0:
-			if rightOverColumnSum == 0:
-				self.interpolateColumn(self.lastIndex + 1)
-				rightOverColumnSum = self.getColumnSum(self.lastIndex + 1)
-			if rightOverColumnSum - leftColumnSum > 0:
-				shiftIndex += 1
-				self.firstIndex += 1
-				self.lastIndex += 1
-			else:
-				break
-			rightOverColumnSum = self.getColumnSum(self.lastIndex + 1, True)
-			leftColumnSum = self.getColumnSum(self.firstIndex)
-		if shiftIndex != 0:
-			self.offTuneIndex += shiftIndex
-			return True
-		return False
-
-	# Checks if offtune shift is now too far from ideal frequency
-	def checkNoteShift(self):
-		if utils.percentDiff((self.firstIndex + self.lastIndex) / 2, self.centerIndex) > 0.02:
-			return True
-		return False
-
-
-	def checkPeak(self, currentSum, referenceSum):
-		if currentSum - referenceSum > ColumnProcessor.runningMaximum / 10 * Constants.COLUMN_PROCESSOR_DATA_WIDTH:
-			if utils.percentDiff(currentSum, referenceSum) > 3:
-				return True
-		return False
-
-	def checkEndPeak(self, currentIndex, currentSum):
-		prevSum = sum([self.manager.data[currentIndex - 1][j] for j in range(self.firstIndex, self.lastIndex + 1)])
-		if prevSum > currentSum and utils.percentDiff(prevSum, currentSum) > 1:
-			prev1Sum = sum([self.manager.data[currentIndex - 2][j] for j in range(self.firstIndex, self.lastIndex + 1)])
-			if utils.percentDiff(prevSum, prev1Sum) < 0.2:
-				futureSum = sum([self.manager.data[currentIndex + 1][j] for j in range(self.firstIndex, self.lastIndex + 1)])
-				if utils.percentDiff(currentSum, futureSum) < 0.2:
-					return True
-
-		return False
-
-
-
-	def propagateUpNegativeRow(self):
-
-		for j in range(self.firstIndex, self.lastIndex + 1):
-			if self.manager.data[self.processingIndex][j] < 0:	# Propagate negative number up
-				rIndex = self.processingIndex
-				while rIndex > 0:
-					rIndex -= 1
-					if self.manager.data[rIndex][j] > -self.manager.data[self.processingIndex][j]:
-						self.manager.data[rIndex][j] += self.manager.data[self.processingIndex][j]
-						self.manager.data[self.processingIndex][j] = 0
-						break
-					else:
-						self.manager.data[self.processingIndex][j] += self.manager.data[rIndex][j]
-						self.manager.data[rIndex][j] = 0
-				self.manager.data[self.processingIndex][j] = 0
-
-	def propagateUpColumn(self, columnIndex):
-		dataIndex = Constants.MAX_BUFFER_SIZE
-		negativeCollector = 0
-		while dataIndex >= self.peakIndex - 3 - self.preNoteOffset:
-			dataIndex -= 1
-			if self.manager.data[dataIndex][columnIndex] < 0:	# Propagate negative number up
-				negativeCollector += self.manager.data[dataIndex][columnIndex]
-				self.manager.data[dataIndex][columnIndex] = 0
-			else:
-				if negativeCollector < 0:
-					if self.manager.data[dataIndex][columnIndex] > -negativeCollector:
-						self.manager.data[dataIndex][columnIndex] += negativeCollector
-						negativeCollector = 0
-					else:
-						negativeCollector += self.manager.data[dataIndex][columnIndex]
-						self.manager.data[dataIndex][columnIndex] = 0
-
-	# def getPreNoteValue(self):
-	# 	a = sum(self.manager.data[self.peakIndex - 2 - self.preNoteOffset][self.firstIndex: self.lastIndex])
-	# 	b = sum(self.manager.data[self.peakIndex - 1 - self.preNoteOffset][self.firstIndex: self.lastIndex])
-	# 	c = sum(self.manager.data[self.peakIndex - self.preNoteOffset][self.firstIndex: self.lastIndex])
-	# 	diffAB = b - a
-	# 	diffBC = c - b
-	# 	if diffAB < 0 or diffBC < 0:
-	# 		return 9 * a / 10 + c / 10
-	# 	if diff
-	def checkPossibleMissedPeak(self, currentSum, currentIndex):
-		if self.checkPeak(currentSum, self.peakValue):
-			if self.checkPeak(currentSum, sum(self.manager.data[currentIndex - 8][self.firstIndex: self.lastIndex + 1])):
-				return True
-		return False
-
-
-	# TODO: Really need to do more for these "eclipsed" shapes.
-	# 1. Not really accounting for their harmonics. ie if some enough pixels are filled, harmonics are doubled.
-	# 2. I dont really know if this approximation method is sufficient
-	def fillComb(self):
-
-		for j in range(self.firstIndex, self.lastIndex + 1):
-			if self.manager.data[self.processingIndex][j] == 0:
-				if self.manager.data[self.processingIndex][j - 1] > 0 and self.manager.data[self.processingIndex][j + 1] > 0:
-					self.manager.data[self.processingIndex][j] = (self.manager.data[self.processingIndex][j - 1] + self.manager.data[self.processingIndex][j + 1]) / 2
-
-
-	def processNewDataRow(self):
-		# Manager class appends new data to deque so all relative indices are shifted down 1
-		self.peakIndex -= 1
-		# Buffer overflow. We would ideally have a longer buffer to account for longer notes. Currently we would have to discard this potential note.
-		if self.peakIndex - self.preNoteOffset - 2 < 0:
-			self.resetPeak()
-			self.peakIndex -= 1
-		self.processingIndex = Constants.MAX_BUFFER_SIZE - 1
-		self.propagateUpNegativeRow()
-		self.processingIndex = int(Constants.MAX_BUFFER_SIZE / 2)
-		self.fillComb()
-
-		row = self.manager.data[self.processingIndex][self.firstIndex: self.lastIndex + 1]
-		initialSum = sum(row)
-		referenceSum = sum(self.manager.data[self.processingIndex - 2][self.firstIndex: self.lastIndex + 1])
-		if self.peakIndex < 0:
-			# Look for new peak
-			if self.checkPeak(initialSum, referenceSum):
-				self.preNoteValue = referenceSum
-				self.peakIndex = self.processingIndex
-				self.peakValue = initialSum
-				self.maxValue = self.peakValue
-		else:
-			if initialSum > self.maxValue:
-				self.maxValue = initialSum
-			# Look for possible new peak, and end of peak.
-			# Criteria would be different than looking for fresh peak
-
-			# TODO: This logic is very unstable because a fake peak could override a real one
-			if initialSum > self.peakValue and utils.percentDiff(initialSum, self.peakValue) > 2:
-				if self.checkPeak(initialSum, referenceSum):
-					indexFromLastPeak = self.processingIndex - self.peakIndex
-					if indexFromLastPeak <= 2:
-						self.preNoteOffset += indexFromLastPeak
-					else:
-						self.preNoteValue = referenceSum
-					self.peakIndex = self.processingIndex
-					self.peakValue = initialSum
-			temp = self.maxValue / 10 + 9 * self.preNoteValue / 10
-			# if self.note.name=="A4":
-			# 	import pdb;pdb.set_trace()
-			if initialSum < temp or utils.percentDiff(initialSum, temp) < 0.2:
-				# Possible it can still qualify as a peak if this is not true
-				if self.tryOfftuneShift():
-					if self.checkNoteShift():
-						self.resetPeak()
-						return Message(MessageType.NO_EVENT)
-					self.peakValue = sum(self.manager.data[self.peakIndex][self.firstIndex: self.lastIndex + 1])
-					self.preNoteValue = sum(self.manager.data[self.peakIndex - 2 - self.preNoteOffset][self.firstIndex: self.lastIndex + 1])	# TODO: Negative?
-					# Check if it also satisfies note end after shift:
-					temp = self.maxValue / 10 + 9 * self.preNoteValue / 10
-					initialSum = sum(self.manager.data[self.processingIndex][self.firstIndex: self.lastIndex + 1])
-					if initialSum < temp or utils.percentDiff(initialSum, temp) < 0.2:
-						return self.getNoteMessage(self.peakIndex - self.preNoteOffset, self.processingIndex)
-				else:
-					return self.getNoteMessage(self.peakIndex - self.preNoteOffset, self.processingIndex)
-
-
-		# if self.checkPossibleMissedPeak(referenceSum, self.processingIndex - 2):
-		# 	if self.note.name == "F#5/Gb5":
-		# 		if self.manager.globalIndex >= 330:
-		# 			print (self.manager.globalIndex)
-		# 	baseIndex = self.processingIndex
-		# 	prevSum = initialSum
-		# 	firstDerivatives = []
-		# 	# In the case of a missed peak, we expect that there is a strictly non-decreasing climb from the base of the peak.
-		# 	while baseIndex > 0:
-		# 		baseIndex -= 1
-		# 		currentSum = sum(self.manager.data[baseIndex][self.firstIndex: self.lastIndex])
-		# 		if currentSum > prevSum:
-		# 			break
-		# 		firstDerivatives.append(prevSum - currentSum)
-		# 		prevSum = currentSum
-		# 	if self.checkPeak(initialSum, prevSum):
-		# 		# If there is a big enough height for this "gradual peak", we decide where the base is 
-		# 		# by looking for the biggest first derivative. Ofcourse, we give more weight to the elements
-		# 		# closer to the base of the peak.
-		# 		modifiedFD = [firstDerivatives[i] * i for i in range(len(firstDerivatives))]
-		# 		trueBaseIndex = modifiedFD.index(max(modifiedFD))
-
-		# 		self.preNoteValue = sum(self.manager.data[self.processingIndex - trueBaseIndex - 2][self.firstIndex: self.lastIndex])
-		# 		self.peakIndex = self.processingIndex - trueBaseIndex
-		# 		self.peakValue = initialSum
-		# 		self.maxValue = self.peakValue
-
-		# 		if self.note.name == "F#5/Gb5":
-		# 			if self.manager.globalIndex >= 330:
-		# 				print (self.manager.globalIndex)
-
-		# 		#print (self.note.name)
-
-
-		return Message(MessageType.NO_EVENT)
-
-
-
-
-
-class ColumnManager:
-
-	def __init__(self, outOfTune, noteParser, sampleRate, samplesPerFrame, samplesPerInterval, maxHarmonic=6):
-		self.globalIndex = 0 	# Index relative to start of global sample
-		self.outOfTune = outOfTune
-		self.sampleRate = sampleRate
-		self.samplesPerInterval = samplesPerInterval
-		self.columnProcessors = []
-		self.activeNotes = []
-		self.data = deque([], Constants.MAX_BUFFER_SIZE)
-		self.data.extend([[0 for i in range(int(samplesPerFrame / 2))] for i in range(Constants.MAX_BUFFER_SIZE)])
-		for note in noteParser.parseNotes():
-			self.columnProcessors.append(
-				ColumnProcessor(note, sampleRate, samplesPerFrame, note.frequency * outOfTune, maxHarmonic,  self)
-			)
-
-	def processNewDataRow(self, row):
-		self.data.append(row)
-		ColumnProcessor.updateRunningMaximum(max(row))
-		for i in range(len(self.columnProcessors)):
-			message = self.columnProcessors[i].processNewDataRow()
-			if message.messageType == MessageType.NEW_NOTE:
-				globalIndexOffset = self.globalIndex - Constants.MAX_BUFFER_SIZE - 1
-				self.activeNotes.append(
-					ActiveNote(message.note,
-						(message.startIndex  + globalIndexOffset) * self.samplesPerInterval / self.sampleRate,
-						(message.endIndex + globalIndexOffset) * self.samplesPerInterval / self.sampleRate,
-						message.loudness
-					)
-				)
-
-
-			if message.messageType == MessageType.NEW_FRAME:
-				pass
-
-		self.globalIndex += 1
-
-
-	def getActiveNotes(self):
-		# Normalise loudness of notes
-		loudest = max([a.loudness for a in self.activeNotes])
-		if loudest > ActiveNote.MAX_LOUDNESS:
-			for a in self.activeNotes:
-				a.loudness = a.loudness / loudest * ActiveNote.MAX_LOUDNESS
-
-		# loudness filter
-		self.activeNotes = [an for an in self.activeNotes if an.loudness > ActiveNote.MAX_LOUDNESS / 8]
-		return self.activeNotes
-
+from noteProcessors.abstractNoteProcessor import AbstractNoteProcessor
+from noteProcessors.continuousNoteProcessor.columnManager import ColumnManager
+from noteProcessors.continuousNoteProcessor.constants import Constants
+from noteProcessors.continuousNoteProcessor.message import Message, MessageType, NewNoteMessage
+from noteProcessors.continuousNoteProcessor.rowGenerators import ContinuousGenerator, RecursiveGenerator
+import utils
 
 
 class ContinuousNoteProcessor(AbstractNoteProcessor):
 	def __init__(self, waveform, sampleRate, noteParser=None, shapeStrategy=None):
 		super(ContinuousNoteProcessor, self).__init__(waveform, sampleRate, noteParser)
 
+	# Estimates how much the whole song is offtune by. This will increase search capabilities.
+	# The assumption here is that all notes of a song are offtune by a similar amount.
+	# TODO: Change this so each section of the song has its own set of approximation.
 	def getOutOfTune(self):
 		def getLocalMax(arr):
 			localMax = []
@@ -460,8 +30,11 @@ class ContinuousNoteProcessor(AbstractNoteProcessor):
 					localMax.append(i)
 			return localMax
 
+		# Number of notes to take when calculating the offset.
 		referenceNoteCount = 6
+		# Duration of time to take as samples when calculating offset
 		referenceDuration = self.sampleRate * 5
+		# Arbitrary start index of offset
 		referenceStartIndex = 10000
 		referenceFFT = fft.fft(self.waveform[referenceStartIndex: referenceStartIndex + referenceDuration])
 		referenceFFT = [abs(f) for f in referenceFFT][:int(len(referenceFFT) / 2)]
@@ -472,6 +45,8 @@ class ContinuousNoteProcessor(AbstractNoteProcessor):
 		i = 0
 		existingNotes = []
 		percentDiffs = []
+
+		# Get double the reference note count
 		while len(existingNotes) <= referenceNoteCount * 2:
 			index = localMax[i]
 			i += 1
@@ -480,9 +55,9 @@ class ContinuousNoteProcessor(AbstractNoteProcessor):
 			if closestNote in existingNotes:
 				continue
 			existingNotes.append(closestNote)
-
 			percentDiffs.append(percentDiff)
 
+		# Remove the notes that increase deviation within the set the most
 		iterations = len(existingNotes) - referenceNoteCount
 		for i in range(referenceNoteCount):
 			avg = sum(percentDiffs) / len(percentDiffs)
@@ -492,7 +67,9 @@ class ContinuousNoteProcessor(AbstractNoteProcessor):
 		outOfTune = sum(percentDiffs) / len(percentDiffs)
 		return outOfTune
 
-
+	# The purpose of this function is to meld the instances where a row is 0x0x0x0... where x is a positive number.
+	# In these cases, it is likely a case of interference from a previous note in the same frame.
+	# Temporarily deprecated
 	def meldRow(self, row, notesFoundInFrame):
 		def isLowValue(value, referenceValue):
 			if value < 0:
@@ -531,161 +108,37 @@ class ContinuousNoteProcessor(AbstractNoteProcessor):
 
 
 	def run(self):
-		# Superimpose all channels into one waveform.
-
 		samplesPerInterval = 512
 		intervalsPerFrame = 128
-
-		trimFrames = 5
-
-		d2Array = []
 		samplesPerFrame = samplesPerInterval * intervalsPerFrame
-
-		sampleIndex = 0
-		# TODO: since waveform is the max space, this effectively almost doubles space requirement for this program
-		# We can re-write paddedWaveform as wrapper around waveform if this becomes a problem
-		# You know I just wish python ints didnt take 28 bytes
-		paddedWaveform = [0 for i in range(samplesPerFrame - samplesPerInterval)]
-		paddedWaveform.extend(self.waveform)
-
+		rowGenerator = ContinuousGenerator(samplesPerInterval, intervalsPerFrame, self.waveform)
+		rows = rowGenerator.generate()
 		outOfTune = self.getOutOfTune()
 		columnManager = ColumnManager(outOfTune, self.noteParser, self.sampleRate, samplesPerFrame, samplesPerInterval)
 
-		d2Array = []
-		maxSample = len(paddedWaveform) - (2 * samplesPerFrame)
-		counter = 0
-		while sampleIndex <= maxSample:
-			counter += 1
-			print(counter)
-			gc.collect()
+		visualise = False
+		for row in rows:
+			if visualise:
+				d2Array.append(d2Row[:2000])
+			columnManager.processNewDataRow(row)
 
-
-			currentFFT = []
-			prevFFT = [0 for i in range(int(samplesPerFrame / 2))]
-
-			frameArray = []
-			startingSampleIndex = sampleIndex
-			for i in range(intervalsPerFrame):
-				currentFFT = fft.fft(paddedWaveform[sampleIndex: sampleIndex + samplesPerFrame])[:int(samplesPerFrame / 2)]
-				d2Row = [abs(currentFFT[j]) - abs(prevFFT[j]) for j in range(len(currentFFT))]
-				#self.meldRow(d2Row, notesFoundInFrame)
-				prevFFT = currentFFT
-				sampleIndex += samplesPerInterval
-
-				if i >= trimFrames and i < intervalsPerFrame - trimFrames:
-					#d2Array.append(d2Row[:2000])
-					columnManager.processNewDataRow(d2Row)
-			sampleIndex -= samplesPerInterval * trimFrames * 2
-			for i in range(max(sampleIndex, startingSampleIndex + samplesPerFrame - samplesPerInterval) , sampleIndex + samplesPerFrame - samplesPerInterval):
-				paddedWaveform[i] = 0
-
-		for i in range(Constants.MAX_BUFFER_SIZE):
-			columnManager.processNewDataRow([0 for i in range(len(currentFFT))])
-
-		# for columnIndex in range(len(d2Array[0])):
-		# 	dataIndex = len(d2Array)
-		# 	negativeCollector = 0
-		# 	while dataIndex > 0:
-		# 		dataIndex -= 1
-		# 		if d2Array[dataIndex][columnIndex] < 0:	# Propagate negative number up
-		# 			negativeCollector += d2Array[dataIndex][columnIndex]
-		# 			d2Array[dataIndex][columnIndex] = 0
-		# 		else:
-		# 			if negativeCollector < 0:
-		# 				if d2Array[dataIndex][columnIndex] > -negativeCollector:
-		# 					d2Array[dataIndex][columnIndex] += negativeCollector
-		# 					negativeCollector = 0
-		# 				else:
-		# 					negativeCollector += d2Array[dataIndex][columnIndex]
-		# 					d2Array[dataIndex][columnIndex] = 0
-		# utils.d2Plot(d2Array, "out/continous2.png", widthCompression=100, heightCompression=10)
-
-		return columnManager.getActiveNotes()
-
-	def run2(self):
-		# Superimpose all channels into one waveform.
-
-		samplesPerInterval = 512
-		intervalsPerFrame = 128
-
-		trimFrames = 5
-
-		d2Array = []
-		samplesPerFrame = samplesPerInterval * intervalsPerFrame
-		fftLen = int(samplesPerFrame / 2) + 1
-
-		sampleIndex = 0
-		# TODO: since waveform is the max space, this effectively almost doubles space requirement for this program
-		# We can re-write paddedWaveform as wrapper around waveform if this becomes a problem
-		# You know I just wish python ints didnt take 28 bytes
-
-		outOfTune = self.getOutOfTune()
-		columnManager = ColumnManager(outOfTune, self.noteParser, self.sampleRate, samplesPerFrame, samplesPerInterval)
-
-		d2Array = []
-		maxSample = len(self.waveform)
-		counter = 0
-		while sampleIndex <= maxSample - samplesPerFrame:
-			counter += 1
-			print(counter)
-			gc.collect()
-			frameFFT = [abs(f) for f in fft.fft(self.waveform[sampleIndex: sampleIndex + samplesPerFrame])[:fftLen]]
-			frameRows = [[0 for i in range(fftLen)] for j in range(intervalsPerFrame)]
-			frameRows[0] = frameFFT
-
-			i = 1
-			while 2 ** i <= intervalsPerFrame:
-				j = 0
-				pow2 = (2 ** i)
-				while j <= pow2 - 1:
-					firstRowIndex =  j * int(intervalsPerFrame / pow2)
-					secondRowIndex = (j + 1) * int(intervalsPerFrame / pow2)
-					sampleLen = (secondRowIndex - firstRowIndex) * samplesPerInterval
-					firstFFTSampleIndex = firstRowIndex * samplesPerInterval + sampleIndex
-					firstFFT = [abs(f) for f in fft.fft(self.waveform[firstFFTSampleIndex: firstFFTSampleIndex + sampleLen])]
-					secondFFTSampleIndex = secondRowIndex * samplesPerInterval + sampleIndex
-					secondFFT = [abs(f) for f in fft.fft(self.waveform[secondFFTSampleIndex: secondFFTSampleIndex + sampleLen])]
-					for k in range(fftLen):
-						lerpRatio = 0 # Percent of first half
-						if k < pow2:
-							lerpRatio = 0.5 # We cant lerp for frequencies that are lost
-						else:
-							index = k / pow2
-							lowerIndex = math.floor(index)
-							higherIndex = math.ceil(index)
-							if lowerIndex == higherIndex:
-								lerpRatio = firstFFT[lowerIndex] / (firstFFT[lowerIndex] + secondFFT[lowerIndex])
+		if visualise:
+			for columnIndex in range(len(d2Array[0])):
+				dataIndex = len(d2Array)
+				negativeCollector = 0
+				while dataIndex > 0:
+					dataIndex -= 1
+					if d2Array[dataIndex][columnIndex] < 0:	# Propagate negative number up
+						negativeCollector += d2Array[dataIndex][columnIndex]
+						d2Array[dataIndex][columnIndex] = 0
+					else:
+						if negativeCollector < 0:
+							if d2Array[dataIndex][columnIndex] > -negativeCollector:
+								d2Array[dataIndex][columnIndex] += negativeCollector
+								negativeCollector = 0
 							else:
-								indexRatio = index - lowerIndex
-								firstValue = firstFFT[lowerIndex] * indexRatio + firstFFT[higherIndex] * (1 - indexRatio)
-								secondValue = secondFFT[lowerIndex] * indexRatio + secondFFT[higherIndex] * (1 - indexRatio)
-								lerpRatio = firstValue / (firstValue + secondValue)
-						frameRows[secondRowIndex][k] = (1 - lerpRatio) * frameRows[firstRowIndex][k]
-						frameRows[firstRowIndex][k] = lerpRatio * frameRows[firstRowIndex][k]
-					j += 2
-				i += 1
-
-			for row in frameRows:
-				d2Array.append(row[:2000])
-				#columnManager.processNewDataRow(row)
-			sampleIndex += samplesPerFrame
-
-		for columnIndex in range(len(d2Array[0])):
-			dataIndex = len(d2Array)
-			negativeCollector = 0
-			while dataIndex > 0:
-				dataIndex -= 1
-				if d2Array[dataIndex][columnIndex] < 0:	# Propagate negative number up
-					negativeCollector += d2Array[dataIndex][columnIndex]
-					d2Array[dataIndex][columnIndex] = 0
-				else:
-					if negativeCollector < 0:
-						if d2Array[dataIndex][columnIndex] > -negativeCollector:
-							d2Array[dataIndex][columnIndex] += negativeCollector
-							negativeCollector = 0
-						else:
-							negativeCollector += d2Array[dataIndex][columnIndex]
-							d2Array[dataIndex][columnIndex] = 0
-		utils.d2Plot(d2Array, "out/continous2.png", widthCompression=100, heightCompression=10)
+								negativeCollector += d2Array[dataIndex][columnIndex]
+								d2Array[dataIndex][columnIndex] = 0
+			utils.d2Plot(d2Array, "out/continous2.png", widthCompression=100, heightCompression=10)
 
 		return columnManager.getActiveNotes()

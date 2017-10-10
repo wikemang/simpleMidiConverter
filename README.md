@@ -9,7 +9,7 @@ A .midi file stores the notes of a musical piece as time-based events. It is ver
 <h2>Usage</h2>
 
 Currently, the project is very primitive and can only be run through the command line.
-Only 2 files are tested with the code so far, and are stored in the audio/ folder. When testScript.py is run, a .midi file will be generated along with .png for debug purposes in the output/ folder. The current output of the 2 test files are committed to the samples/ directory. The midi synthesizer I use is Synthesia, but any synthesizer that supports the time-coded midi format would work for playing the .midi file.
+Only 2 files are tested with the code so far, and are stored in the audio/ folder. Check out testScript.py for some ways to run the project. .midi files will are generated in the output/ folder. Check out the samples folder for midi files generated with by this project. As well, checkout demoResources for a visualisation of the development process. The midi synthesizer I use is Synthesia, but any synthesizer that supports the time-coded midi format would work for playing the .midi file.
 
 http://www.synthesiagame.com/
 
@@ -31,7 +31,7 @@ into a midi file (rendered in Synthesia) like this:
 <p align="center">
 	<video width="320" height="240" controls>
 		<source src="demoResources/SynthesiaDemo.mp4" type="video/mp4">
-		<a href="demoResources/synthesiaDemo.mp4" download="SynthesiaDemo.mp4">Rendered Midi File</a>
+		<a href="demoResources/SynthesiaDemo.mp4" download="SynthesiaDemo.mp4">Rendered Midi File</a>
 	</video>
 </p>
 Of course, you can see that in the case of the midi file, there are a lot of "false" notes present. The ideal midi file would consist of only the notes that are audibly present in the sound file and nothing more. However, the challenge to this problem (aside from the main technical challenges) is that musical note perception is not purely a physiological phenomenon but a psychological one as well. The current state of the project examines some ways the conversion from raw audio to notes can be done without machine learning.
